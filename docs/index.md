@@ -3,10 +3,10 @@
 pboted (Plus Bote Daemon) - is a standalone C++ implementation of I2P-Bote protocol.
 
 I2P-Bote is a server-less encrypted KademliaDHT-based email protocol.   
-You can find more details it Bote section.
+You can find more details it [Bote](devs/bote/v5/version5.md) section.
 
-Interaction with the I2P network occurs through the SAMv3 interface.    
-Tested with i2pd and Java I2P.
+Interaction with the I2P network occurs through the [SAMv3](https://geti2p.net/ru/docs/api/samv3) interface.
+Tested with [i2pd](https://github.com/PurpleI2P/i2pd) and [Java I2P](https://github.com/i2p/i2p.i2p).
 
 ## Features
 
