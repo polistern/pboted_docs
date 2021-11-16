@@ -3,7 +3,7 @@ site_url: https://pboted.readthedocs.io
 site_description: pboted documentation
 site_author: polistern
 
-repo_url: https://github.com/polistern/pboted
+repo_url: https://github.com/polistern/pboted_docs
 
 nav:
 - Home: index.md
@@ -11,7 +11,7 @@ nav:
   - Installing: user-guide/install.md
   - Running: user-guide/run.md
   - Configuring: user-guide/configuration.md
-  #- FAQ: user-guide/FAQ.md
+  - FAQ: user-guide/FAQ.md
 - Tutorials:
   - AddressBook: tutorials/addressbook.md
   - SMTP: tutorials/SMTP.md
@@ -40,24 +40,21 @@ nav:
       - Files: devs/bote/v4/files.md
       - Cryptography: devs/bote/v4/cryptography.md
       - Glossary of Terms: devs/bote/v4/glossary_of_terms.md
-    
 - About:
-  #- Community: about/community.md
-  #- History: about/history.md
   - License: about/license.md
   - Special thanks: about/thanks.md
-  #- Contributing: about/contributing.md
+  - Contributing: about/contributing.md
 
 copyright: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</a>, Maintained by polistern
 theme: readthedocs
 
-#markdown_extensions:
-#  - admonition
-#  - pymdownx.details
-#  - pymdownx.superfences
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
 
 theme:
-  name: 'readthedocs'
+  name: 'material'
   icon:
     admonition:
       note: octicons/tag-16
