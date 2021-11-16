@@ -42,22 +42,22 @@ nav:
       - Glossary of Terms: devs/bote/v4/glossary_of_terms.md
     
 - About:
-#  - Community: about/community.md
-#  - History: about/history.md
+  #- Community: about/community.md
+  #- History: about/history.md
   - License: about/license.md
   - Special thanks: about/thanks.md
-#  - Contributing: about/contributing.md
+  #- Contributing: about/contributing.md
 
 copyright: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</a>, Maintained by polistern
 theme: readthedocs
 
-markdown_extensions:
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences
+#markdown_extensions:
+#  - admonition
+#  - pymdownx.details
+#  - pymdownx.superfences
 
 theme:
-  name: 'material'
+  name: 'readthedocs'
   icon:
     admonition:
       note: octicons/tag-16
