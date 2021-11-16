@@ -1,6 +1,6 @@
-## Configuration
+# Configuration
 
-### The pboted needs I2P router
+## The pboted needs I2P router
 
 - Install and run i2pd
 - Enable SAM API in i2pd. Edit in i2pd.conf:
@@ -13,7 +13,7 @@ enabled = true
 - Restart i2pd   
 - Local TCP port 7656 and UDP port 7655 should be available
 
-### User service configuration
+## User service configuration
 
 - Copy example config from `contrib/pboted.conf` to `~/.pboted/pboted.conf`:
 
@@ -28,7 +28,7 @@ cp contrib/pboted.conf ~/.pboted/pboted.conf`
 ./pboted --conf ~/.pboted/pboted.conf
 ```
 
-### Unix daemon configuration [recommended]
+## Unix daemon configuration [recommended]
 
 - Create `/etc/pboted` directory:
 
@@ -68,7 +68,7 @@ sudo systemctl start pboted.service
 
 - Now you can see in log files that all works. Also, you can see the status of the SAM session in the I2P Router console.
 
-## Usage
+# Usage
 
 You may need the utilities from the `utils` directory to work with **pboted**.   
 In the future, their list will grow.   
@@ -79,9 +79,9 @@ You can only continue to use your Java I2P-Bote identities if:
 - your address is created using the ECDH-256/ECDSA-256/AES-256/SHA-256 algorithm (others are not supported yet)
 - identities file is not encrypted (encrypted files are not supported yet)
 
-### Sending email
+## Sending email
 
-#### SMTP
+### SMTP
 
 To be able to send email through SMTP you need to:
 
@@ -97,7 +97,7 @@ port = 25
 - Restart the **pboted** to apply the settings
 - After loading, you be able to connect to the specified SMTP port manually or with your mail client
 
-#### Via `outbox` directory 
+### Via `outbox` directory 
 
 - Prepare plain test message
 - Format it with `message_formatter`
@@ -105,12 +105,12 @@ port = 25
 - pboted will automatically check `outbox` and send email
 - After sending email file will be moved to `sent` directory
 
-### Receiving email
+## Receiving email
 
 After starting with a generated identity the application will begin its normal job of searching for mail.  
 If mail for identity are found, they will be placed in the `inbox` directory.
 
-#### POP3
+### POP3
 
 To be able to receive email through POP3 you need to:
 

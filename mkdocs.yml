@@ -12,17 +12,29 @@ nav:
   - Running: user-guide/run.md
   - Configuring: user-guide/configuration.md
   #- FAQ: user-guide/FAQ.md
+- Tutorials:
+  - SMTP: tutorials/SMTP.md
+  - POP3: tutorials/POP3.md
 - Developer Section:
   - Building from source:
     - Requirements: devs/building/requirements.md
     - Unix: devs/building/unix.md
   - Bote Protocol:
-    - Desc: devs/bote/desc.md
-    - Version 5: devs/bote/version5.md
-#- About:
+    - Introduction: devs/bote/introduction.md
+    - Kademlia: devs/bote/kademlia.md
+    - Packet Types: devs/bote/packet_types.md
+    - Protocols: devs/bote/protocols.md
+    - Algorithms Used By Nodes Locally: devs/bote/algorithms_used_by_nodes_locally.md
+    - Files: devs/bote/files.md
+    - Cryptography: devs/bote/cryptography.md
+    - Glossary of Terms: devs/bote/glossary_of_terms.md
+    - Version 5:
+      - Description: devs/bote/v5/version5.md
+- About:
 #  - Community: about/community.md
 #  - History: about/history.md
-#  - License: about/license.md
+  - License: about/license.md
+  - Special thanks: about/thanks.md
 #  - Contributing: about/contributing.md
 
 copyright: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</a>, Maintained by polistern
