@@ -1,16 +1,16 @@
 # 3. Packet Types
 
-As of release 0.7.0, the protocol version is 5. It is incompatible to earlier versions.
-Version 5 clients will talk to higher versions.
-There will be at least one more protocol version at some point in the future; this version will be backwards compatible to version 5.
-All packets start with one byte for the Packet type_, followed by one byte for the Packet version.
+As of release 0.7.0, the protocol version is 5. It is incompatible to earlier versions.   
+Version 5 clients will talk to higher versions.   
+There will be at least one more protocol version at some point in the future; this version will be backwards compatible to version 5.   
+All packets start with one byte for the Packet type, followed by one byte for the Packet version.   
 Strings in packets are UTF8 encoded.
 
 ## 3.1. Data Packets
 
 These are always sent wrapped in a Communication Packet (see 3.2).   
-E denotes encrypted data.   
-For supported encryption and signature algorithms, see 7.1   
+**E** denotes encrypted data.   
+For supported encryption and signature algorithms, see [7.1](cryptography.md)   
 
 ```
    Packet Type        | Field | Data Type  | Description

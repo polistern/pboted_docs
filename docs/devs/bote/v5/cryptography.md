@@ -4,7 +4,7 @@
 
 Supported encryption and signature algorithms:
 
-* ALG=1: ElGamal-2048 / DSA-1024 / AES-256 / SHA-256 (same as the I2P router uses)
+* ALG=1: ElGamal-2048 / DSA-1024 / AES-256 / SHA-256
 * ALG=2: ECDH-256 / ECDSA-256 / AES-256 / SHA-256
 * ALG=3: ECDH-521 / ECDSA-521 / AES-256 / SHA-512
 * ALG=4: NTRUEncrypt-1087 / GMSS-512 / AES-256 / SHA-512

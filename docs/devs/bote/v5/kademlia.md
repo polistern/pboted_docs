@@ -6,7 +6,11 @@ The Kademlia implementation used by I2P-Bote differs from standard Kademlia in s
  * No caching of DHT items because they are only retrieved once and then deleted
  * I2P-Bote uses sibling lists (s-buckets) as suggested in the S/Kademlia paper
 
-There are three types of data that is stored in the DHT: Email Packets, Index Packets, and Contacts.
+There are three types of data that is stored in the DHT:
+
+* Email Packets
+* Index Packets
+* Contacts
 
 Index packets contain the DHT keys of one or more email packets. The DHT key of an index Packet is the SHA-256 hash of the Email Destination the email packets are destined for.   
 To check for new email for a given Email Destination, I2P-Bote first queries the DHT for index packets for that Email Destination, then queries the DHT for all email Packet keys in the index packets.  

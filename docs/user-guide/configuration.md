@@ -1,127 +1,69 @@
 # Configuration
 
-## The pboted needs I2P router
+## Available options
 
-- Install and run i2pd
-- Enable SAM API in i2pd. Edit in i2pd.conf:
+Run `pboted --help` to show builtin help message (default value of option will be shown in braces).
 
-```
-[sam]
-enabled = true
-```
+### General options
 
-- Restart i2pd   
-- Local TCP port 7656 and UDP port 7655 should be available
 
-## User service configuration
+| Option     | Description                        |
+|------------|------------------------------------|
+| conf       | Config file (default: ~/.pboted/pboted.conf or /etc/pboted/pboted.conf). This parameter will be silently ignored if the specified config file does not exist. |
+| pidfile    | Where to write pidfile (default: pboted.pid) |
+| daemon     | pboted will go to background after start |
+| service    | pboted will use system folders like '/var/lib/pboted' |
+| log        | Logs destination: stdout, file, syslog (stdout if not set or invalid) (if daemon, stdout/unspecified are replaced by file in some cases) |
+| logfile    | Path to logfile (default - autodetect) |
+| loglevel   | Log messages above this level (debug, info, warn, error, none; default - info) |
+| logclftime | Write full CLF-formatted date and time to log (default: write only time) |
+| host       | pboted external IP for incoming connections |
+| port       | UDP port to listen for incoming connections |
 
-- Copy example config from `contrib/pboted.conf` to `~/.pboted/pboted.conf`:
+!!! note "Note"
 
-```
-cp contrib/pboted.conf ~/.pboted/pboted.conf`
-```
+    `datadir` and `service` options are only used as arguments for pboted, these options have no effect when set in `pboted.conf`.
 
-- Edit the config to suit your needs. The file is well documented, comments will help you.
-- Now you can run application:
 
-```
-./pboted --conf ~/.pboted/pboted.conf
-```
+### SAM
 
-## Unix daemon configuration [recommended]
+| Option      | Description                          |
+|-------------|--------------------------------------|
+| sam.name    | If SAM is enabled. true by default   |
+| sam.address | I2P SAM address (default: 127.0.0.1) |
+| sam.tcp     | I2P SAM TCP port (default: 7656)     |
+| sam.udp     | I2P SAM UDP port (default: 7655)     |
+| 
 
-- Create `/etc/pboted` directory:
+### Bootstrap
 
-```
-sudo mkdir /etc/pboted
-```
+| Option            | Description                        |
+|-------------------|------------------------------------|
+| bootstrap.address | These are the nodes with high uptime and the most information about peers in the network. To get started, you need at least one node that supports protocol version 4 or higher. Each line should be a I2P destination key in Base64 format. |
 
-- Copy example config from `contrib/pboted.conf` to `~/.pboted/pboted.conf`:
-
-```
-sudo cp contrib/pboted.conf /etc/pboted/pboted.conf`
-```
-
-- Edit the config to suit your needs. The file is well documented, comments will help you.
-- Create user, data and logs directories:
-
-```
-sudo useradd pboted -r -s /usr/sbin/nologin
-sudo mkdir /var/lib/pboted
-sudo chown -R pboted: /var/lib/pboted
-sudo mkdir /var/log/pboted
-sudo chown -R pboted: /var/log/pboted
-```
-
-- Copy example systemd service from `contrib/pboted.service` to `/lib/systemd/system/pboted.service`:
+You can specify this parameter multiple times with different addresses.   
+For example: 
 
 ```
-sudo cp contrib/pboted.service /lib/systemd/system/pboted.service`
+[bootstrap]
+address = <first address>
+address = <second address>
+...
+address = <N-th address>
 ```
-
-- Reload daemons configuration and start unit:
-
-```
-sudo systemctl daemon-reload
-sudo systemctl start pboted.service
-```
-
-- Now you can see in log files that all works. Also, you can see the status of the SAM session in the I2P Router console.
-
-# Usage
-
-You may need the utilities from the `utils` directory to work with **pboted**.   
-In the future, their list will grow.   
-There are plans to transfer all means for interaction into a separate CLI utility.
-
-You can only continue to use your Java I2P-Bote identities if:
-
-- your address is created using the ECDH-256/ECDSA-256/AES-256/SHA-256 algorithm (others are not supported yet)
-- identities file is not encrypted (encrypted files are not supported yet)
-
-## Sending email
 
 ### SMTP
 
-To be able to send email through SMTP you need to:
-
-- Fill [smtp] section in configuration file:
-
-```
-[smtp]
-enabled = true
-address = 127.0.0.1
-port = 25
-```
-
-- Restart the **pboted** to apply the settings
-- After loading, you be able to connect to the specified SMTP port manually or with your mail client
-
-### Via `outbox` directory 
-
-- Prepare plain test message
-- Format it with `message_formatter`
-- Put result file to `outbox` directory in pboted working directory
-- pboted will automatically check `outbox` and send email
-- After sending email file will be moved to `sent` directory
-
-## Receiving email
-
-After starting with a generated identity the application will begin its normal job of searching for mail.  
-If mail for identity are found, they will be placed in the `inbox` directory.
+| Option       | Description                              |
+|--------------|------------------------------------------|
+| smtp.enabled | Allow connect via SMTP (default: true).  |
+| smtp.address | SMTP listen address (default: 127.0.0.1) |
+| smtp.port    | SMTP listen TCP port (default: 25)       |
 
 ### POP3
 
-To be able to receive email through POP3 you need to:
-
-- Fill [pop3] section in configuration file:
-
-```
-[pop3]
-enabled = true
-address = 127.0.0.1
-port = 110
-```
-
-- Restart the **pboted** to apply the settings
-- After loading, you be able to connect to the specified POP3 port manually or with your mail client.
+| Option       | Description                              |
+|--------------|------------------------------------------|
+| pop3.enabled | Allow connect via POP3 (default: true).  |
+| pop3.address | POP3 listen address (default: 127.0.0.1) |
+| pop3.port    | POP3 listen port (default: 110)          |
