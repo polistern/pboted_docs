@@ -54,6 +54,9 @@ markdown_extensions:
 
 theme:
   name: 'material'
+  palette:
+    scheme: slate
+    primary: green
   icon:
     admonition:
       note: octicons/tag-16
