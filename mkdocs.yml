@@ -1,0 +1,29 @@
+site_name: pboted documentation
+site_url: https://pboted.readthedocs.io
+site_description: pboted documentation
+site_author: polistern
+
+repo_url: https://github.com/polistern/pboted_docs
+
+nav:
+- Home: index.md
+- User Guide:
+  - Installing: user-guide/install.md
+  - Running: user-guide/run.md
+  - Configuring: user-guide/configuration.md
+  #- FAQ: user-guide/FAQ.md
+- Developer Section:
+  - Building from source:
+    - Requirements: devs/building/requirements.md
+    - Unix: devs/building/unix.md
+  - Bote Protocol:
+    - Desc: devs/bote/desc.md
+    - Version 5: devs/bote/version5.md
+#- About:
+#  - Community: about/community.md
+#  - History: about/history.md
+#  - License: about/license.md
+#  - Contributing: about/contributing.md
+
+copyright: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</a>, Maintained by polistern
+theme: readthedocs
