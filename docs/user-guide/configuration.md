@@ -19,6 +19,7 @@ Run `pboted --help` to show builtin help message (default value of option will b
 | logclftime | Write full CLF-formatted date and time to log (default: write only time) |
 | host       | pboted external IP for incoming connections |
 | port       | UDP port to listen for incoming connections |
+| storage    | Limit for local storage usage (default: 50 MB) |
 
 !!! note "Note"
 

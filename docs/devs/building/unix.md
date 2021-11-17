@@ -27,7 +27,7 @@ cmake                   # you may add VERBOSE=1 to cmdline for debugging
 - Put binary to `/usr/sbin/`
 
 ```
-sudo mv pboted /usr/sbin/pboted
+sudo cp pboted /usr/sbin/pboted
 ```
 
 ## CMake Options
@@ -45,7 +45,9 @@ Also there is `-L` flag for CMake that could be used to list current cached opti
 
 ## Debian/Ubuntu:
 
-_Tested with Debian 10 and Ubuntu 20.04._
+!!! note "Note"
+
+    Tested with Debian 10 and Ubuntu 20.04.
 
 You will need a compiler and other tools that could be installed with `build-essential` and `debhelper` packages:
 
@@ -64,6 +66,7 @@ sudo apt install \
   libboost-thread-dev \
   libmimetic-dev \
   libssl-dev \
+  pkg-config \
   zlib1g-dev
 ```
 
