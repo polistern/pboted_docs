@@ -1,4 +1,4 @@
-# 4. Protocols
+# 4. Protocols (DRAFT)
 
 ## 4.1. Storing a DHT item via relays
 
@@ -15,10 +15,13 @@ I2P nodes involved: A=Sender, R1...Rn=Relays, S1...Sm=Storage Nodes
 ## 4.2. Return Chains
 
 In order to make it impossible for two non-adjacent nodes on the return chain to identify Relay Return Request packets, the payload_ and the entire Return Chain are re-encrypted at every hop.   
-A new Correlation ID is generated at every hop.   
+A new Correlation ID is generated at every hop.
+
 Here is a simplified diagram of how a Relay Return Packet is sent from one hop to the next:   
 
-### (A) The Packet is received. HOP1 through HOP3 contain encrypted data (encrypted with the public key for the receiving I2P node):
+### (A)
+
+The Packet is received. HOP1 through HOP3 contain encrypted data (encrypted with the public key for the receiving I2P node):
 
 ```
       
@@ -37,7 +40,9 @@ Here is a simplified diagram of how a Relay Return Packet is sent from one hop t
       KEYx denotes a layer of encryption.
 ```
 
-### (B) The receiving node decrypts HOP1, HOP2, and HOP3. HOP1 is now in plain text. It contains thedestination of the next hop and an AES key.
+### (B)
+
+The receiving node decrypts HOP1, HOP2, and HOP3. HOP1 is now in plain text. It contains thedestination of the next hop and an AES key.
 
 ```  
       +------------------- Relay Return Request --------------------------+
@@ -52,7 +57,9 @@ Here is a simplified diagram of how a Relay Return Packet is sent from one hop t
       |                                                                   |
       +-------------------------------------------------------------------+
 ```
-### (C) HOP1 is replaced with random data and moved to the end of the chain. The payload is encrypted with the AES key from HOP1:
+### (C)
+
+HOP1 is replaced with random data and moved to the end of the chain. The payload is encrypted with the AES key from HOP1:
 
 ```
       +------------------- Relay Return Request --------------------------+
@@ -68,7 +75,9 @@ Here is a simplified diagram of how a Relay Return Packet is sent from one hop t
       +-------------------------------------------------------------------+
 ```
 
-### (D) The Packet is sent to the next node in the chain.
+### (D)
+
+The Packet is sent to the next node in the chain.
 
 ## 4.3. Retrieving DHT items via relays (not implemented yet)
 

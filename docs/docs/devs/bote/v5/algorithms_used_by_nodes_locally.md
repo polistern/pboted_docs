@@ -1,4 +1,4 @@
-# 5. Algorithms Used By Nodes Locally
+# 5. Algorithms Used By Nodes Locally (DRAFT)
 
 ## 5.1. Retrieving Email via relays
 
@@ -10,11 +10,7 @@ See also http://forum.i2p/viewtopic.php?p=19927#19927 ff.
   - with Sm being the node closest to the receiver and S1 the chain node closest to fetcher
 
 3. Generate m+1 random 32-byte arrays (for XORing the return packets), X1...Xm+1
-    (This is done so the outgoing chain's endpoint or inbound first hop need
-    not know all inbound hops in order to perform hop-to-hop encryption. Each
-    hop will decrypt one 32-byte random array and encrypt the Packet with it,
-    so it looks different at each hop without one node at the beginning
-    knowing all hops)
+    (This is done so the outgoing chain's endpoint or inbound first hop need not know all inbound hops in order to perform hop-to-hop encryption. Each hop will decrypt one 32-byte random array and encrypt the Packet with it, so it looks different at each hop without one node at the beginning knowing all hops)
 4. With Sm's public key, encrypt the local destination key and Xm+1
 5. With Sm-1's public key, encrypt Sm's destination key, Xm, and the data from step 4)
 6. With Sm-2's public key, encrypt Sm-1's destination key, Xm-1, and the data from step 5)

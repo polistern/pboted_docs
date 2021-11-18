@@ -1,10 +1,10 @@
-# 2. Kademlia
+# 2. Kademlia (DRAFT)
 
 The Kademlia implementation used by I2P-Bote differs from standard Kademlia in several ways:
 
- * Items can be deleted from the DHT
- * No caching of DHT items because they are only retrieved once and then deleted
- * I2P-Bote uses sibling lists (s-buckets) as suggested in the S/Kademlia paper
+* Items can be deleted from the DHT
+* No caching of DHT items because they are only retrieved once and then deleted
+* I2P-Bote uses sibling lists (s-buckets) as suggested in the S/Kademlia paper
 
 There are three types of data that is stored in the DHT:
 

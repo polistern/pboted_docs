@@ -4,6 +4,7 @@ site_description: pboted documentation
 site_author: polistern
 
 repo_url: https://github.com/polistern/pboted_docs
+repo_name: polistern/pboted_docs
 
 nav:
 - Home: index.md
@@ -47,12 +48,15 @@ nav:
   - Contributing: about/contributing.md
   - Donations: about/donations.md
 
-copyright: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</a>, Maintained by polistern
+copyright: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</a>, Maintained by <a href="https://github.com/polistern">polistern</a>
 
 markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+
+plugins:
+  - git-revision-date
 
 theme:
   name: 'material'
@@ -60,6 +64,7 @@ theme:
     scheme: slate
     primary: green
   icon:
+    repo: fontawesome/brands/github
     admonition:
       note: octicons/tag-16
       abstract: octicons/checklist-16
