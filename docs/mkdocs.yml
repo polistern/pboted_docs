@@ -18,6 +18,7 @@ nav:
   - AddressBook: tutorials/addressbook.md
   - SMTP: tutorials/SMTP.md
   - POP3: tutorials/POP3.md
+  - Configuring the mail client: tutorials/mail_client.md
 - Developer Section:
   - Building from source:
     - Requirements: devs/building/requirements.md
