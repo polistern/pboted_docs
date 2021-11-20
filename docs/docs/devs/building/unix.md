@@ -21,7 +21,7 @@ git submodule update --init
 ```
 cd build
 cmake <cmake options> . # see "CMake Options" section below
-cmake                   # you may add VERBOSE=1 to cmdline for debugging
+make                    # you may add VERBOSE=1 to cmdline for debugging
 ```
 
 - Put binary to `/usr/sbin/`
