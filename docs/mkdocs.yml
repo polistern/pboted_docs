@@ -19,30 +19,29 @@ nav:
   - SMTP: tutorials/SMTP.md
   - POP3: tutorials/POP3.md
   - Configuring the mail client: tutorials/mail_client.md
-- Developer Section:
-  - Building from source:
-    - Requirements: devs/building/requirements.md
-    - Unix: devs/building/unix.md
-  - Bote Protocol:
-    - Version 5:
-      - Description: devs/bote/v5/version5.md
-      - Introduction: devs/bote/v5/introduction.md
-      - Kademlia: devs/bote/v5/kademlia.md
-      - Packet Types: devs/bote/v5/packet_types.md
-      - Protocols: devs/bote/v5/protocols.md
-      - Algorithms Used By Nodes Locally: devs/bote/v5/algorithms_used_by_nodes_locally.md
-      - Files: devs/bote/v5/files.md
-      - Cryptography: devs/bote/v5/cryptography.md
-      - Glossary of Terms: devs/bote/v5/glossary_of_terms.md
-    - Version 4:
-      - Introduction: devs/bote/v4/introduction.md
-      - Kademlia: devs/bote/v4/kademlia.md
-      - Packet Types: devs/bote/v4/packet_types.md
-      - Protocols: devs/bote/v4/protocols.md
-      - Algorithms Used By Nodes Locally: devs/bote/v4/algorithms_used_by_nodes_locally.md
-      - Files: devs/bote/v4/files.md
-      - Cryptography: devs/bote/v4/cryptography.md
-      - Glossary of Terms: devs/bote/v4/glossary_of_terms.md
+- Building from source:
+  - Requirements: building/requirements.md
+  - Unix: building/unix.md
+- Bote Protocol:
+  - Version 5:
+    - Description: bote/v5/version5.md
+    - Introduction: bote/v5/introduction.md
+    - Kademlia: bote/v5/kademlia.md
+    - Packet Types: bote/v5/packet_types.md
+    - Protocols: bote/v5/protocols.md
+    - Algorithms Used By Nodes Locally: bote/v5/algorithms_used_by_nodes_locally.md
+    - Files: bote/v5/files.md
+    - Cryptography: bote/v5/cryptography.md
+    - Glossary of Terms: bote/v5/glossary_of_terms.md
+  - Version 4:
+    - Introduction: bote/v4/introduction.md
+    - Kademlia: bote/v4/kademlia.md
+    - Packet Types: bote/v4/packet_types.md
+    - Protocols: bote/v4/protocols.md
+    - Algorithms Used By Nodes Locally: bote/v4/algorithms_used_by_nodes_locally.md
+    - Files: bote/v4/files.md
+    - Cryptography: bote/v4/cryptography.md
+    - Glossary of Terms: bote/v4/glossary_of_terms.md
 - About:
   - License: about/license.md
   - Special thanks: about/thanks.md

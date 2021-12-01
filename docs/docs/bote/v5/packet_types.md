@@ -241,6 +241,7 @@ Response to a `Retrieve Request`, `Fetch Request`, `Find Close Peers Request`, o
 | `4`     | Invalid HashCash             |
 | `5`     | Not enough HashCash provided |
 | `6`     | No disk space left           |
+| `7`     | Duplicated data              |
 
 ### 3.2.6 Peer List Request
 
