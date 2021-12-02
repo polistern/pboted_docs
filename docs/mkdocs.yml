@@ -15,6 +15,7 @@ nav:
   - Usage: user-guide/usage.md
   - FAQ: user-guide/FAQ.md
 - Tutorials:
+  - Bootstrap: tutorials/bootstrap.md
   - AddressBook: tutorials/addressbook.md
   - SMTP: tutorials/SMTP.md
   - POP3: tutorials/POP3.md

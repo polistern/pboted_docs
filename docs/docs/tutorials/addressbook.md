@@ -1,6 +1,7 @@
 # AddressBook
 
-This feature allows you to use short names when forming letters by third-party applications (currently, when using the SMTP protocol).
+This feature allows you to use short names when forming letters by third-party applications (currently, when using the SMTP protocol).    
+This feature is most useful for sending emails from applications that expect usual email addresses.
 
 ## Usage
 

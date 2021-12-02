@@ -2,7 +2,7 @@
 
 ## Building from source
 
-See [developer section documentation](../devs/building/requirements.md) for how to build pboted from source on your OS.
+See [developer section documentation](../building/requirements.md) for how to build pboted from source on your OS.
 
 ## Ubuntu
 
