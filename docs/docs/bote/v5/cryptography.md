@@ -8,9 +8,9 @@ Encryption and signature algorithms:
 |----|------------------|-------------|-----------|---------|-------------------|
 | 1  | ElGamal-2048     | DSA-1024    | AES-256   | SHA-256 | Java-Bote         |
 | 2  | ECDH-256         | ECDSA-256   | AES-256   | SHA-256 | Java-Bote, pboted |
-| 3  | ECDH-521         | ECDSA-521   | AES-256   | SHA-512 | Java-Bote, pboted (work in progress) |
+| 3  | ECDH-521         | ECDSA-521   | AES-256   | SHA-512 | Java-Bote, pboted |
 | 4  | NTRUEncrypt-1087 | GMSS-512    | AES-256   | SHA-512 | Java-Bote         |
-| 5  | ECDH-X25519      | EDDSA-25519 | AES-256   | SHA-512 | pboted (work in progress) |
+| 5  | X25519           | ED25519     | AES-256   | SHA-512 | pboted (work in progress) |
 
 ## 7.2. Password Encryption
 
