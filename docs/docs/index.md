@@ -8,13 +8,21 @@ You can find more details it [Bote](bote/v5/version5.md) section.
 Interaction with the I2P network occurs through the [SAMv3](https://geti2p.net/ru/docs/api/samv3) interface.
 Tested with [i2pd](https://github.com/PurpleI2P/i2pd) and [Java I2P](https://github.com/i2p/i2p.i2p).
 
+## Alpha
+
+Please note that **pboted** version **0.7.X** is still in **alpha**.
+During this period, there may be significant changes in the application.
+
+Transition to **beta** planned in version **0.9.X**
+
 ## Features
 
 - Sending and receiving emails
-- Basic support for short recipient names
-- Elliptic Curve encryption (ECDH-256/ECDSA-256/AES-256/SHA-256)
-- Runnable as daemon or as user service
-- SMTP / POP3 (basic support, work in progress)
+- Support for short recipient names (alias)
+- End-to-End encryption ([details](bote/v5/cryptography/))
+- Runnable as daemon
+- [CLI utility](https://github.com/polistern/pbotectl) (work in progress)
+- SMTP / POP3 support (tested with [Mozilla Thunderbird](https://www.thunderbird.net/en-US/))
 
 ## Planned Features
 
@@ -22,7 +30,6 @@ Tested with [i2pd](https://github.com/PurpleI2P/i2pd) and [Java I2P](https://git
 - Sending email anonymously
 - Delivery confirmation
 - Sending and receiving via relays, similar to Mixmaster
-- CLI interface and tools
 - Interfaces for interaction with third-party applications (IMAP, etc.)
 
 ## Resources
