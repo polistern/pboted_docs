@@ -6,7 +6,7 @@ There are plans to transfer all means for interaction into a separate CLI utilit
 
 You can only continue to use your Java I2P-Bote identities if:
 
-- your address is created using the ECDH-256/ECDSA-256/AES-256/SHA-256 algorithm (others are not supported yet)
+- your address is created using the `ECDH-256/ECDSA-256/AES-256/SHA-256` or `ECDH-521/ECDSA-521/AES-256/SHA-512` algorithm (others are not supported yet)
 - identities file is not encrypted (encrypted files are not supported yet)
 
 ## Create Bote identity

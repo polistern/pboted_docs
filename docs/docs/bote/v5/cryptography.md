@@ -4,13 +4,13 @@
 
 Encryption and signature algorithms:
 
-| ID | Crypto           | Signing     | Symmetric | Hash    | Supported         |
-|----|------------------|-------------|-----------|---------|-------------------|
-| 1  | ElGamal-2048     | DSA-1024    | AES-256   | SHA-256 | Java-Bote         |
-| 2  | ECDH-256         | ECDSA-256   | AES-256   | SHA-256 | Java-Bote, pboted |
-| 3  | ECDH-521         | ECDSA-521   | AES-256   | SHA-512 | Java-Bote, pboted |
-| 4  | NTRUEncrypt-1087 | GMSS-512    | AES-256   | SHA-512 | Java-Bote         |
-| 5  | X25519           | ED25519     | AES-256   | SHA-512 | pboted (work in progress) |
+| ID | Crypto           | Signing     | Symmetric | Hash    | Java-Bote | pboted |
+|----|------------------|-------------|-----------|---------|-----------|--------|
+| 1  | ElGamal-2048     | DSA-1024    | AES-256   | SHA-256 | yes       | never  |
+| 2  | ECDH-256         | ECDSA-256   | AES-256   | SHA-256 | yes       | yes    |
+| 3  | ECDH-521         | ECDSA-521   | AES-256   | SHA-512 | yes       | yes    |
+| 4  | NTRUEncrypt-1087 | GMSS-512    | AES-256   | SHA-512 | yes       | no     |
+| 5  | X25519           | ED25519     | AES-256   | SHA-512 | no        | yes    |
 
 ## 7.2. Password Encryption
 
