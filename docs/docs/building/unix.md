@@ -3,7 +3,8 @@
 **Supported systems:**
 
 * GNU/Linux
-  - [Debian/Ubuntu](#debian-ubuntu) (with packaging)
+    - [Debian/Ubuntu](#debian-ubuntu) (with packaging)
+    - CentOS/RedHat
 
 Make sure you have all required dependencies for your system successfully installed.
 See [this](requirements.md) page for common requirements.

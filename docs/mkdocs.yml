@@ -8,12 +8,12 @@ repo_name: polistern/pboted_docs
 
 nav:
 - Home: index.md
-- User Guide:
+- Beginning:
   - Installing: user-guide/install.md
   - Running: user-guide/run.md
   - Configuring: user-guide/configuration.md
+  - Files: user-guide/files.md
   - Usage: user-guide/usage.md
-  - FAQ: user-guide/FAQ.md
 - Tutorials:
   - Bootstrap: tutorials/bootstrap.md
   - AddressBook: tutorials/addressbook.md
@@ -22,18 +22,16 @@ nav:
   - Configuring the mail client: tutorials/mail_client.md
 - Building from source:
   - Requirements: building/requirements.md
-  - Unix: building/unix.md
+  - UNIX: building/unix.md
 - Bote Protocol:
   - Version 5:
     - Description: bote/v5/version5.md
+    - Glossary of Terms: bote/v5/glossary_of_terms.md
     - Introduction: bote/v5/introduction.md
     - Kademlia: bote/v5/kademlia.md
     - Packet Types: bote/v5/packet_types.md
     - Protocols: bote/v5/protocols.md
-    - Algorithms Used By Nodes Locally: bote/v5/algorithms_used_by_nodes_locally.md
-    - Files: bote/v5/files.md
     - Cryptography: bote/v5/cryptography.md
-    - Glossary of Terms: bote/v5/glossary_of_terms.md
   - Version 4:
     - Introduction: bote/v4/introduction.md
     - Kademlia: bote/v4/kademlia.md
@@ -57,7 +55,60 @@ markdown_extensions:
   - pymdownx.superfences
 
 plugins:
+  - search
   - git-revision-date
+  - i18n:
+      default_language: en
+      #no_translation:
+      #  en: "This page isn't translated to English."
+      #  ru: "Эта страница не переведена на Русский."
+      languages:
+        en:
+          name: English
+          build: true
+          site_name: pboted
+        ru:
+          name: Russian
+          build: true
+          site_name: pboted
+      #translate_nav:
+      #  en:
+      #    User Guide: "User Guide"
+      #  ru:
+      #    User Guide: "Руководство пользователя"
+      nav_translations:
+        ru:
+          Home: Главная
+          Beginning: Начало работы
+          Installing: Установка
+          Running: Запуск
+          Configuring: Конфигурация
+          Files: Файлы
+          Usage: Использование
+          #FAQ: 
+          Tutorials: Руководства
+          Bootstrap: Начальная загрузка
+          AddressBook: Адресная книга
+          #SMTP:
+          #POP3:
+          Configuring the mail client: Настройка почтового клиента
+          Building from source: Сборка из исходников
+          Requirements: Требования
+          #UNIX: 
+          Bote Protocol: Протокол Bote
+          Version 5: Версия 5
+          Description: Описание
+          Glossary of Terms: Словарь терминов
+          Introduction: Введение
+          #Kademlia:
+          Packet Types: Типы пакетов
+          Protocols: Протоколы
+          Cryptography: Криптография
+          About: О проекте
+          License: Лицензия
+          Special thanks: Особые благодарности
+          Contributing: Содействие
+          Donations: Пожертвования
 
 theme:
   name: 'material'

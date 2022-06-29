@@ -12,27 +12,85 @@ Encryption and signature algorithms:
 | 4  | NTRUEncrypt-1087 | GMSS-512    | AES-256   | SHA-512 | yes       | no     |
 | 5  | X25519           | ED25519     | AES-256   | SHA-512 | no        | yes    |
 
-## 7.2. Password Encryption
+### Email Identity Formats
 
-ToDo: Looks specific to Java app, remove from protocol description
+#### Version 0
 
-The identities file, the address book, and all email files are encrypted with AES-256.   
-To generate the AES key from the password, scrypt (http://www.tarsnap.com/scrypt.html) is used.   
-The file format is:
+An Email Destination is a Base64 string containing a public encryption key and a signature verification key.   
+Example of a 512-character Email Destination (ElGamal-2048/DSA-1024):
+  
+```
+  uQtdwFHqbWHGyxZN8wChjWbCcgWrKuoBRNoziEpE8XDt8koHdJiskYXeUyq7JmpG
+  In8WKXY5LNue~62IXeZ-ppUYDdqi5V~9BZrcbpvgb5tjuu3ZRtHq9Vn6T9hOO1fa
+  FYZbK-FqHRiKm~lewFjSmfbBf1e6Fb~FLwQqUBTMtKYrRdO1d3xVIm2XXK83k1Da
+  -nufGASLaHJfsEkwMMDngg8uqRQmoj0THJb6vRfXzRw4qR5a0nj6dodeBfl2NgL9
+  HfOLInwrD67haJqjFJ8r~vVyOxRDJYFE8~f9b7k3N0YeyUK4RJSoiPXtTBLQ2RFQ
+  gOaKg4CuKHE0KCigBRU-Fhhc4weUzyU-g~rbTc2SWPlfvZ6n0voSvhvkZI9V52X3
+  SptDXk3fAEcwnC7lZzza6RNHurSMDMyOTmppAVz6BD8PB4o4RuWq7MQcnF9znElp
+  HX3Q10QdV3omVZJDNPxo-Wf~CpEd88C9ga4pS~QGIHSWtMPLFazeGeSHCnPzIRYD
+```
 
-|Field | #bytes | Description                                   |
-|------|--------|-----------------------------------------------|
-|SOF   | 4      | Start of file, contains the characters "IBef" |
-|VER   | 1      | Format version, must be 1                     |
-|N     | 4      | scrypt CPU cost parameter                     |
-|r     | 4      | scrypt memory cost parameter                  |
-|p     | 4      | scrypt parallelization parameter              |
-|SALT  | 32     | Salt for scrypt                               |
-|IV    | 32     | IV for AES                                    |
-|DATA  |        | The encrypted data                            |
+Example of a 86-character Email Destination (ECC-256):
 
-Parameters N through SALT are cached in a file named derivparams so all encrypted files can use the same key derivation parameters.   
-This makes decryption much faster because the key only needs to be derived once per session.
+```
+  1Lcvly8no5of6juJKxqy-xA-MStM2c2XKorepH1oqs5
+  yKBkg9-ZcG4G4kZY1E~2672cMA806l9EicQLmlehB1m
+```
+
+Used by **pboted** and **I2P-Bote**
+
+Destination type can only be determined by the length of the base64 string:
+
+| ID | Public    | Private  |
+|----|-----------|----------|
+| 1  | 512       | 880      |
+| 2  | 86        | 172      |
+| 3  | 174       | 348      |
+| 4  | 2079      | 97813    |
+
+#### Version 1
+
+After the introduction of new, more modern algorithms, the question arose of the ambiguity of determining the type of key by its length in the form of base64.  
+A more comprehensive format has been developed that will later allow combinations of different types of keys, not just predefined ones.
+
+Used by **pboted**
+
+Template:
+`<data format>.<encoded data>`
+
+- data format - Can be (for now):
+	- **b32** (`base32`)
+	- **b64** (`base64`) 
+- encoded data - Can be bytes with:
+	- Email Destination (*public keys*)
+	- Email Identity (*with public and private keys*)
+
+
+Email Destination:
+
+| Field    | Size   | Description                                           |
+|----------|--------|-------------------------------------------------------|
+| `VER`    | 1 byte | format version                                        |
+| `CTYPE`  | 1 byte | cryptography algorithm type                           |
+| `STYPE`  | 1 byte | signing algorithm type                                |
+| `SMTYPE` | 1 byte | symmetric encryption algorithm type                   |
+| `HTYPE`  | 1 byte | hash algorithm type                                   |
+| `CDATA`  | N byte | crypto public key (field length depends on the type)  |
+| `SDATA`  | M byte | signing public key (field length depends on the type) |
+
+Email Identity:
+
+| Field    | Size   | Description                                           |
+|----------|--------|-------------------------------------------------------|
+| `VER`    | 1 byte | format version                                        |
+| `CTYPE`  | 1 byte | cryptography algorithm type                           |
+| `STYPE`  | 1 byte | signing algorithm type                                |
+| `SMTYPE` | 1 byte | symmetric encryption algorithm type                   |
+| `HTYPE`  | 1 byte | hash algorithm type                                   |
+| `CDATA`  | N byte | crypto public key (field length depends on the type)  |
+| `SDATA`  | M byte | signing public key (field length depends on the type) |
+| `CPDATA` | X byte | crypto private key (field length depends on the type) |
+| `SPDATA` | Y byte | signing private key (field length depends on the type)|
 
 ## 7.3. Fingerprints For Directory Entries
 

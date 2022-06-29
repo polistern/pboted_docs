@@ -17,13 +17,7 @@ See [create_identity](https://github.com/polistern/pboted-tools/tree/main/create
 
 ### SMTP
 
-_tested with [Mozilla Thunderbird](https://www.thunderbird.net/en-US/)_
-
-To be able to send email through SMTP you need to:
-
-- Fill `[smtp]` section in configuration file with [parameters](configuration.md)
-- Restart the **pboted** to apply the settings
-- After loading, you be able to connect to the specified SMTP port manually or with your mail client
+See [SMTP](../tutorials/SMTP.md)
 
 ### Via `outbox` directory 
 
@@ -43,10 +37,4 @@ If mail for identity are found, they will be placed in the `inbox` directory as 
 
 ### POP3
 
-_tested with [Mozilla Thunderbird](https://www.thunderbird.net/en-US/)_
-
-To be able to receive email through POP3 you need to:
-
-- Fill [pop3] section in configuration file with [parameters](configuration.md)
-- Restart the **pboted** to apply the settings
-- After loading, you be able to connect to the specified POP3 port manually or with your mail client.
+See [POP3](../tutorials/POP3.md)

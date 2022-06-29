@@ -1,9 +1,13 @@
-# 4. Protocols (DRAFT)
+# 4. Протоколы (ЧЕРНОВИК)
 
-## 4.1. Storing a DHT item via relays
+## 4.1. Сохранение DHT-элемента через реле
 
-I2P nodes involved: A=Sender, R1...Rn=Relays, S1...Sm=Storage Nodes
+Вовлечённые I2P узлыЖ
+* `A` - Sender
+* `R1...Rn` - Relays
+* `S1...Sm` - Storage Nodes
 
+Алгоритм:
 1. A onion-encrypts the Store Request with the public keys of all hops, resulting in a Relay Packet.
 2. A sends the Relay Packet to R1.
 3. R1 decrypts the Packet, waits a random amount of time, and sends it to R2.
@@ -12,7 +16,7 @@ I2P nodes involved: A=Sender, R1...Rn=Relays, S1...Sm=Storage Nodes
 6. Rn decrypts the Relay Packet into an Email Packet.
 7. Rn sends the Packet to S1,...,Sm through a Kademlia STORE
 
-## 4.2. Return Chains
+## 4.2. Цепь возврата
 
 In order to make it impossible for two non-adjacent nodes on the return chain to identify Relay Return Request packets, the payload_ and the entire Return Chain are re-encrypted at every hop.   
 A new Correlation ID is generated at every hop.
