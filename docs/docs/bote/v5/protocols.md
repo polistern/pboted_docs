@@ -1,8 +1,14 @@
-# 4. Protocols (DRAFT)
+# Protocols (DRAFT)
 
-## 4.1. Storing a DHT item via relays
+## 1. Storing a DHT item via relays
 
-I2P nodes involved: A=Sender, R1...Rn=Relays, S1...Sm=Storage Nodes
+I2P nodes involved:
+
+- `A`=Sender
+- `R1...Rn`=Relays
+- `S1...Sm`=Storage Nodes
+
+Process:
 
 1. A onion-encrypts the Store Request with the public keys of all hops, resulting in a Relay Packet.
 2. A sends the Relay Packet to R1.
@@ -12,7 +18,7 @@ I2P nodes involved: A=Sender, R1...Rn=Relays, S1...Sm=Storage Nodes
 6. Rn decrypts the Relay Packet into an Email Packet.
 7. Rn sends the Packet to S1,...,Sm through a Kademlia STORE
 
-## 4.2. Return Chains
+## 2. Return Chains
 
 In order to make it impossible for two non-adjacent nodes on the return chain to identify Relay Return Request packets, the payload_ and the entire Return Chain are re-encrypted at every hop.   
 A new Correlation ID is generated at every hop.
@@ -79,15 +85,15 @@ HOP1 is replaced with random data and moved to the end of the chain. The payload
 
 The Packet is sent to the next node in the chain.
 
-## 4.3. Retrieving DHT items via relays (not implemented yet)
+## 3. Retrieving DHT items via relays (not implemented yet)
 
 I2P nodes involved:
 
-- A=Address Owner
-- F=Fetcher
-- O1...On=Outbound Relays
-- I1...In=Inbound Relays,
-- S1...Sm=Storage Nodes
+- `A`=Address Owner
+- `F`=Fetcher
+- `O1...On`=Outbound Relays
+- `I1...In`=Inbound Relays,
+- `S1...Sm`=Storage Nodes
 
 Process:
 
@@ -106,7 +112,7 @@ Process:
 13. A decrypts the payload_ with the AES keys, starting from the last hop's key
 14. The decrypted data contains the DHT data Packet
 
-## 4.4. Deleting an Email Packet
+## 4. Deleting an Email Packet
 
 Every time a recipient receives an email Packet directly from one or more storage nodes, it asks the storage node(s) to delete the Packet.   
 If the email Packet is received through one or more relays, the recipient issues a delete request to a (possibly different) relay endpoint, which entails an additional findClosestNodes lookup because the endpoint has to find out which nodes are storing the Packet.   
@@ -116,18 +122,32 @@ Each index Packet node then removes the DHT key from the stored index Packet, an
 The purpose of this is so a node that is about to replicate an email Packet can find out if it missed an earlier delete request for that Packet, in which case the node "replicates" the delete request rather than the Packet itself.   
 This helps reduce storage space by removing old Email Packets from nodes that weren't online at the time the delete request was sent initially.
   
-## 4.5 Deleting an Index Packet Entry
+## 5 Deleting an Index Packet Entry
 
 Similar to deleting an email Packet.
 
-## 4.6. Replication
+## 6. Replication
 
 See comments at the beginning of src/i2p/bote/network/kademlia/ReplicateThread.java
 
-## 4.7. Retrieving Email via relays
+Replicates locally stored DHT data on startup and every REPLICATE_INTERVAL seconds after that.
+
+The basic algorithm goes like this:
+
+* Do a lookup for the local node ID to refresh the s-bucket
+* For each locally stored DHT item (index packet entries and email packets) that has not been deleted:
+  * Store the entry on the k closest nodes, based on info from local buckets
+  * If at least one peer responds with a valid delete request,
+    * delete it locally (this is already handled by code outside this class), and
+    * send a delete request to the nodes that didn't respond (which they won't if they don't know the packet has been deleted)
+* Otherwise, replication for that entry is finished.
+
+## 7. Retrieving Email via relays
 
 See also http://forum.i2p/viewtopic.php?p=19927#19927 ff.
-   
+
+Process:
+
 1. Randomly choose a set of n relay nodes,  R1...Rn (outgoing chain for request)
 2. Randomly choose a set of m relay nodes, S1...Sm. (return chain / inbound mail chain)
 

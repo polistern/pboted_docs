@@ -5,7 +5,7 @@ This feature is most useful for sending emails from applications that expect usu
 
 ## Usage
 
-First you need to fill in file `addressbook.txt` in pboted data directory (usually it is `/var/lib/pboted`).   
+First you need to fill in file `addressbook.txt` in pboted data directory (usually it is `/var/lib/pboted/addressbook.txt` or `~/.pboted/addressbook.txt`).   
 For example:
 
 ```
@@ -25,8 +25,8 @@ root@localhost;root;7uI3bOBph5pUAgVT5MWxg8lFPYvT2O6LpPVUHL-Sqdl24noEIMPvV9CEwrSW
 
 !!! warning "Warning"
 
-    Do not edit addressbook.txt file while pboted is running as it will be overwritten.
+    Do not edit `addressbook.txt` file while **pboted** is running as it will be overwritten.
 
 When you're done filling out the `addressbook.txt` file, start the **pboted**.   
 
-Now you able to use aliases in your TO field in application.   
+Now you able to use aliases in your **TO** field in application.   

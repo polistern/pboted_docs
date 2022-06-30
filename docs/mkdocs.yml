@@ -20,13 +20,10 @@ nav:
   - SMTP: tutorials/SMTP.md
   - POP3: tutorials/POP3.md
   - Configuring the mail client: tutorials/mail_client.md
-- Building from source:
-  - Requirements: building/requirements.md
-  - UNIX: building/unix.md
 - Bote Protocol:
   - Version 5:
     - Description: bote/v5/version5.md
-    - Glossary of Terms: bote/v5/glossary_of_terms.md
+    - Glossary of Terms: bote/v5/terms.md
     - Introduction: bote/v5/introduction.md
     - Kademlia: bote/v5/kademlia.md
     - Packet Types: bote/v5/packet_types.md
@@ -42,9 +39,9 @@ nav:
     - Cryptography: bote/v4/cryptography.md
     - Glossary of Terms: bote/v4/glossary_of_terms.md
 - About:
+  - Contributing: about/contributing.md
   - License: about/license.md
   - Special thanks: about/thanks.md
-  - Contributing: about/contributing.md
   - Donations: about/donations.md
 
 copyright: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</a>, Maintained by <a href="https://github.com/polistern">polistern</a>
@@ -59,6 +56,7 @@ plugins:
   - git-revision-date
   - i18n:
       default_language: en
+      docs_structure: suffix
       #no_translation:
       #  en: "This page isn't translated to English."
       #  ru: "Эта страница не переведена на Русский."
@@ -85,7 +83,6 @@ plugins:
           Configuring: Конфигурация
           Files: Файлы
           Usage: Использование
-          #FAQ: 
           Tutorials: Руководства
           Bootstrap: Начальная загрузка
           AddressBook: Адресная книга
@@ -93,8 +90,6 @@ plugins:
           #POP3:
           Configuring the mail client: Настройка почтового клиента
           Building from source: Сборка из исходников
-          Requirements: Требования
-          #UNIX: 
           Bote Protocol: Протокол Bote
           Version 5: Версия 5
           Description: Описание

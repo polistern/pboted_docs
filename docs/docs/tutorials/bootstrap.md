@@ -8,6 +8,13 @@ There are 2 possibilities for this:
 
 ## `[bootstrap]` section
 
+This option will be used only at the very first launch of the application, when file `nodex.txt` has not yet been generated.    
+If `nodex.txt` file already exists, then these option will be ignored. 
+
+!!! note "Note"
+
+    You can remove `nodes.txt` file while **pboted** is stopped. In this case section will be readed from configuration file.
+
 To use this option, you need in the configuration file:
 
 - Add `[bootstrap]` section
@@ -27,13 +34,10 @@ address = RRdJMFwElkeEoFzQgCqTl1fN2llsIgbY5Ql3wv4uBqh2VtvKXTZ3~Zj1DzTO~ymCw1IeCL
 
 ```
 
-This option will be used only at the very first launch of the application, when file `nodex.txt` has not yet been generated.    
-If `nodex.txt` file already exists, then these option will be ignored. 
-
 
 ## `nodes.txt`
 
-If you want to add nodes to 123 yourself, then just add them, save the file, and start application.
+If you want to add nodes to `nodes.txt` yourself, then just add them, save the file, and than start **pboted**.
 
 !!! warning "Warning"
 

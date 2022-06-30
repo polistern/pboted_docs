@@ -1,8 +1,16 @@
-# 1. Introduction (DRAFT)
+# Introduction (DRAFT)
 
-I2P-Bote is a serverless pseudonymous email exchange service for the I2P network. Emails are stored encrypted in a Kademlia DHT formed by all I2P-bote nodes. There is a SMTP/POP3 interface that lets the user send/read email.
+I2P-Bote is a serverless pseudonymous email exchange service for the I2P network.  
+Emails are stored encrypted in a Kademlia DHT formed by all I2P-bote nodes. There is a SMTP/POP3 interface that lets the user send/read email.
 
-Email can be sent through a number of other nodes (relays) for increased anonymity, or directly to a set of storage nodes for faster delivery. Receiving email through relays is not yet implemented. All nodes are created equal. There are no "supernodes" or designated relay/storage nodes. Everybody acts as a potential relay and storage node. The maximum amount of disk space used for relayed/stored email packets is user-configurable. Before an email is sent, it is broken up into packets 30 kb or smaller and encrypted with the recipient's public key. The packets are then stored in the DHT.
+Email can be sent through a number of other nodes (relays) for increased anonymity, or directly to a set of storage nodes for faster delivery. Receiving email through relays is not yet implemented.
+
+All nodes are created equal.
+There are no "supernodes" or designated relay/storage nodes.
+Everybody acts as a potential relay and storage node.
+The maximum amount of disk space used for relayed/stored email packets is user-configurable.
+Before an email is sent, it is broken up into packets 30 kb or smaller and encrypted with the recipient's public key.
+The packets are then stored in the DHT.
 
 Email packets are stored redundantly in a Kademlia DHT (distributed hash table).   
 Stored email packets and relay packets are kept for at least 100 days, during which the recipient can download them. If a node runs out of email storage space, and there are no old packets that can be deleted, the node refuses storage requests.
@@ -89,4 +97,5 @@ If both sender and recipient chose not to use relays, the diagram looks like thi
  `-----------'
 ```
 
-I2P-Bote uses base64 strings for addresses. They are called email destinations and can be between 86 and 512 characters long, depending on the type of encryption the user chooses (see [7.1 Cryptography](cryptography.md)).
+I2P-Bote uses base64 strings for addresses. They are called [Email Destinations](terms.md#email-destination) and can be between 86 and 512 characters long, depending on the type of encryption the user chooses.  
+For more details see [Cryptography](cryptography.md).

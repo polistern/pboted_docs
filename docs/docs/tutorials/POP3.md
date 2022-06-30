@@ -4,7 +4,7 @@ _Tested with [Mozilla Thunderbird](https://www.thunderbird.net/en-US/)_
 
 To be able to receive email through POP3 you need to:
 
-- Fill [pop3] section in configuration file:
+- Fill `[pop3]` section in [configuration file](../user-guide/configuration.md#pop3):
 
 ```
 [pop3]

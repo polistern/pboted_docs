@@ -4,7 +4,7 @@ _Работа проверена с [Mozilla Thunderbird](https://www.thunderbir
 
 Чтобы иметь возможность получать почту по протоколу POP3 Вам нужно:
 
-- Заполнить секцию [pop3] в [конфигурационном файле](../user-guide/configuration.md):
+- Заполнить секцию `[pop3]` в [конфигурационном файле](../user-guide/configuration.md#pop3):
 
 ```
 [pop3]

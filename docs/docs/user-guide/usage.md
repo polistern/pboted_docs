@@ -2,11 +2,13 @@
 
 You may need the utilities from the [pboted-tools](https://github.com/polistern/pboted-tools/) repository to work with **pboted**.   
 In the future, their list will grow.   
-There are plans to transfer all means for interaction into a separate CLI utility.
+There are plans to transfer all means for interaction into a separate [CLI utility](https://github.com/polistern/pbotectl).
 
-You can only continue to use your Java I2P-Bote identities if:
+You can only continue to use your Java Bote identities if:
 
-- your address is created using the `ECDH-256/ECDSA-256/AES-256/SHA-256` or `ECDH-521/ECDSA-521/AES-256/SHA-512` algorithm (others are not supported yet)
+- your address is created using the one of the follow algorithm (others are not supported yet):
+    - `ECDH-256/ECDSA-256/AES-256/SHA-256`
+    - `ECDH-521/ECDSA-521/AES-256/SHA-512` 
 - identities file is not encrypted (encrypted files are not supported yet)
 
 ## Create Bote identity
@@ -14,6 +16,10 @@ You can only continue to use your Java I2P-Bote identities if:
 See [create_identity](https://github.com/polistern/pboted-tools/tree/main/create_identity)
 
 ## Sending email
+
+!!! note "Note"
+
+    After successful sending, the email file will be modified and moved to the `sent` directory
 
 ### SMTP
 

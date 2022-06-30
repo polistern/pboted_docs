@@ -2,7 +2,7 @@
 
 pboted (Plus Bote Daemon) - is a standalone C++ implementation of I2P-Bote protocol.
 
-I2P-Bote is a server-less encrypted KademliaDHT-based email protocol.   
+I2P-Bote is a server-less encrypted [DHT Kademlia](https://en.wikipedia.org/wiki/Distributed_hash_table)-based email protocol.   
 You can find more details it [Bote](bote/v5/version5.md) section.
 
 Interaction with the I2P network occurs through the [SAMv3](https://geti2p.net/en/docs/api/samv3) interface.
@@ -19,8 +19,8 @@ Transition to **beta** planned in version **0.9.X**
 
 - Sending and receiving emails
 - Support for short recipient names (alias)
-- End-to-End encryption ([details](bote/v5/cryptography/))
-- Runnable as daemon
+- [End-to-End encryption](bote/v5/cryptography/)
+- Runnable as UNIX daemon
 - [CLI utility](https://github.com/polistern/pbotectl) (work in progress)
 - SMTP / POP3 support (tested with [Mozilla Thunderbird](https://www.thunderbird.net/en-US/))
 

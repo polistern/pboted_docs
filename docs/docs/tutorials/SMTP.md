@@ -4,7 +4,7 @@ _Tested with [Mozilla Thunderbird](https://www.thunderbird.net/en-US/)_
 
 To be able to send email through SMTP you need to:
 
-- Fill [smtp] section in configuration file:
+- Fill `[smtp]` section in [configuration file](../user-guide/configuration.md#smtp):
 
 ```
 [smtp]

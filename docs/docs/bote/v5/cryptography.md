@@ -1,23 +1,29 @@
-# 7. Cryptography (DRAFT)
+# Cryptography (DRAFT)
 
-## 7.1. Asymmetric encryption and signing
+## 1. Asymmetric encryption and signing
 
 Encryption and signature algorithms:
 
-| ID | Crypto           | Signing     | Symmetric | Hash    | Java-Bote | pboted |
-|----|------------------|-------------|-----------|---------|-----------|--------|
-| 1  | ElGamal-2048     | DSA-1024    | AES-256   | SHA-256 | yes       | never  |
-| 2  | ECDH-256         | ECDSA-256   | AES-256   | SHA-256 | yes       | yes    |
-| 3  | ECDH-521         | ECDSA-521   | AES-256   | SHA-512 | yes       | yes    |
-| 4  | NTRUEncrypt-1087 | GMSS-512    | AES-256   | SHA-512 | yes       | no     |
-| 5  | X25519           | ED25519     | AES-256   | SHA-512 | no        | yes    |
+| ID | Crypto           | Signing     | Symmetric | Hash    | Java Bote | pboted             |
+|----|------------------|-------------|-----------|---------|-----------|--------------------|
+| 1  | ElGamal-2048     | DSA-1024    | AES-256   | SHA-256 | active    | never (deprecated) |
+| 2  | ECDH-256         | ECDSA-256   | AES-256   | SHA-256 | active    | active             |
+| 3  | ECDH-521         | ECDSA-521   | AES-256   | SHA-512 | active    | active             |
+| 4  | NTRUEncrypt-1087 | GMSS-512    | AES-256   | SHA-512 | active    | no                 |
+| 5  | X25519           | ED25519     | AES-256   | SHA-512 | no        | active             |
 
-### Email Identity Formats
+## 2. Email Identity Formats
 
-#### Version 0
+After the introduction of new, more modern algorithms, the question arose of the ambiguity of determining the type of `Email Destination` by its length in the form of Base64.  
 
-An Email Destination is a Base64 string containing a public encryption key and a signature verification key.   
-Example of a 512-character Email Destination (ElGamal-2048/DSA-1024):
+A more comprehensive format has been developed that will later allow combinations of different types of keys, not just predefined ones.
+
+The previously used option for storing and passing `Email Destinations` and `Email Identities` is now version 0.
+
+### Version 0
+
+An `Email Destination` is a Base64 string containing a public encryption key and a signature verification key.   
+Example of a 512-character `Email Destination` (ElGamal-2048/DSA-1024):
   
 ```
   uQtdwFHqbWHGyxZN8wChjWbCcgWrKuoBRNoziEpE8XDt8koHdJiskYXeUyq7JmpG
@@ -30,16 +36,16 @@ Example of a 512-character Email Destination (ElGamal-2048/DSA-1024):
   HX3Q10QdV3omVZJDNPxo-Wf~CpEd88C9ga4pS~QGIHSWtMPLFazeGeSHCnPzIRYD
 ```
 
-Example of a 86-character Email Destination (ECC-256):
+Example of a 86-character `Email Destination` (ECC-256):
 
 ```
   1Lcvly8no5of6juJKxqy-xA-MStM2c2XKorepH1oqs5
   yKBkg9-ZcG4G4kZY1E~2672cMA806l9EicQLmlehB1m
 ```
 
-Used by **pboted** and **I2P-Bote**
+Used by **pboted** and **Java Bote**
 
-Destination type can only be determined by the length of the base64 string:
+`Email Destination` type can only be determined by the length of the base64 string:
 
 | ID | Public    | Private  |
 |----|-----------|----------|
@@ -48,10 +54,7 @@ Destination type can only be determined by the length of the base64 string:
 | 3  | 174       | 348      |
 | 4  | 2079      | 97813    |
 
-#### Version 1
-
-After the introduction of new, more modern algorithms, the question arose of the ambiguity of determining the type of key by its length in the form of base64.  
-A more comprehensive format has been developed that will later allow combinations of different types of keys, not just predefined ones.
+### Version 1
 
 Used by **pboted**
 
@@ -62,11 +65,11 @@ Template:
 	- **b32** (`base32`)
 	- **b64** (`base64`) 
 - encoded data - Can be bytes with:
-	- Email Destination (*public keys*)
-	- Email Identity (*with public and private keys*)
+	- `Email Destination` (*public keys*)
+	- `Email Identity` (*with public and private keys*)
 
 
-Email Destination:
+#### `Email Destination` format
 
 | Field    | Size   | Description                                           |
 |----------|--------|-------------------------------------------------------|
@@ -78,7 +81,10 @@ Email Destination:
 | `CDATA`  | N byte | crypto public key (field length depends on the type)  |
 | `SDATA`  | M byte | signing public key (field length depends on the type) |
 
-Email Identity:
+Example:
+` `
+
+#### `Email Identity` format
 
 | Field    | Size   | Description                                           |
 |----------|--------|-------------------------------------------------------|
@@ -92,7 +98,10 @@ Email Identity:
 | `CPDATA` | X byte | crypto private key (field length depends on the type) |
 | `SPDATA` | Y byte | signing private key (field length depends on the type)|
 
-## 7.3. Fingerprints For Directory Entries
+Example:
+` `
+
+## 2. Fingerprints For Directory Entries
 
 ToDo: Looks specific to Java app, remove from protocol description
 
