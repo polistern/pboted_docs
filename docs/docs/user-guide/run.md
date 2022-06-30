@@ -18,7 +18,7 @@ sudo mkdir /etc/pboted
 - Copy example config from `contrib/pboted.conf` to `~/.pboted/pboted.conf`:
 
 ```
-sudo cp contrib/pboted.conf /etc/pboted/pboted.conf`
+sudo cp contrib/pboted.conf /etc/pboted/pboted.conf
 ```
 
 - Edit the config to suit your needs. The file is well documented, comments will help you.
@@ -35,7 +35,7 @@ sudo chown -R pboted: /var/log/pboted
 - Copy example systemd service from `contrib/pboted.service` to `/lib/systemd/system/pboted.service`:
 
 ```
-sudo cp contrib/pboted.service /lib/systemd/system/pboted.service`
+sudo cp contrib/pboted.service /lib/systemd/system/pboted.service
 ```
 
 - Reload daemons configuration and start unit:
@@ -52,7 +52,7 @@ sudo systemctl start pboted.service
 - Copy example config from `contrib/pboted.conf` to `~/.pboted/pboted.conf`:
 
 ```
-cp contrib/pboted.conf ~/.pboted/pboted.conf`
+cp contrib/pboted.conf ~/.pboted/pboted.conf
 ```
 
 - Edit the config to suit your needs. The file is well documented, comments will help you.

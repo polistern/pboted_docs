@@ -18,7 +18,7 @@ sudo mkdir /etc/pboted
 - Скопируйте образец конфигурационного файла из `contrib/pboted.conf` в `~/.pboted/pboted.conf`:
 
 ```
-sudo cp contrib/pboted.conf /etc/pboted/pboted.conf`
+sudo cp contrib/pboted.conf /etc/pboted/pboted.conf
 ```
 
 - Отредайтируйте конфигурационный файл под Ваши нужды. Образец файла хорошо документирован, комментарии помогут Вам в понимании параметров.
@@ -35,7 +35,7 @@ sudo chown -R pboted: /var/log/pboted
 - Скопируйте образец `systemd` Unit-файла из `contrib/pboted.service` в `/lib/systemd/system/pboted.service`:
 
 ```
-sudo cp contrib/pboted.service /lib/systemd/system/pboted.service`
+sudo cp contrib/pboted.service /lib/systemd/system/pboted.service
 ```
 
 - Перезагрузите конфигурацию `systemd` сервисов и запустите приложение:
@@ -52,7 +52,7 @@ sudo systemctl start pboted.service
 - Скопируйте образец файла конфигурации из `contrib/pboted.conf` в `~/.pboted/pboted.conf`:
 
 ```
-cp contrib/pboted.conf ~/.pboted/pboted.conf`
+cp contrib/pboted.conf ~/.pboted/pboted.conf
 ```
 
 - Отредайтируйте конфигурационный файл под Ваши нужды. Образец файла хорошо документирован, комментарии помогут Вам в понимании параметров.
