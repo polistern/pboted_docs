@@ -81,6 +81,8 @@ Contains the DHT keys of one or more `Email Packets`, a `Delete Verification` Ha
 
 Contains information about deleted  DHT items, which can be `Email Packets` or `Index Packet` entries.
 
+Must be a part of `Response packet ` on `Deletion Query`.
+
 | Field   | Data Type  | Description                       |
 |---------|------------|-----------------------------------|
 | `TYPE`  | 1 byte     | Value = `'T'`                     |
@@ -281,8 +283,11 @@ A request to a peer to return a data item for a given DHT key and data type.
 
 ### 3.2 Deletion Query
 
-A request to a peer to return a `Deletion Info Packet` for a given `Email Packet` DHT key.    
-`Response Packet` with correct status is expected back `[VER 5]`.
+A request to a node to return a `Deletion Info Packet` for a given `Email Packet` DHT key.  
+Used to determine mail delivery.
+
+`Response Packet` with correct status is expected back. `[VER 5]`  
+`Response Packet` must contain `Deletion Info Packet`.
 
 | Field   | Data Type  | Description                                  |
 |---------|------------|----------------------------------------------|

@@ -1,13 +1,13 @@
 # Running
 
-## The pboted needs I2P router
+## pboted needs I2P router
 
-- Install and run I2P router
-- Enable SAM API
+- Install I2P router
+- Enable SAMv3 API
 - Restart I2P router   
 - Local TCP port 7656 and UDP port 7655 should be available
 
-## Recommended way to run pboted built from source
+## Recommended way to run pboted (built from source)
 
 - Create `/etc/pboted` directory:
 

@@ -32,4 +32,10 @@ The address of a I2P-Bote node on the I2P network. There is normally no need to 
 
 ## Node
 
-## Relay
+A full-featured node that is capable of handling requests for storage, retrieval, deletion, etc.  
+The "closest" to the DHT-keys is determined by the `I2P destination` of this nodes type.
+
+## Relay (Peer)
+
+A node with high availability in the near future (at least 18 hours in the last 24 hours).  
+They are used as intermediaries for anonymized transmission of packets to `Nodes`.
