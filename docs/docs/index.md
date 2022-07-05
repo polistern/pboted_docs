@@ -29,7 +29,7 @@ Transition to **beta** planned in version **0.9.X**
 - Custom per identity/user email folders
 - Sending email anonymously
 - Delivery confirmation
-- Sending and receiving via relays, similar to Mixmaster
+- Sending and receiving via relays (similar to Mixmaster)
 - Interfaces for interaction with third-party applications (IMAP, etc.)
 
 ## Resources

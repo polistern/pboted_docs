@@ -1,19 +1,24 @@
 # Начальная загрузка
 
 Так как **pboted** имеет распределёную структуру, ему необходима информация о других узлах сети для первого старта.  
-Есть 2 возможности для записи:
+Есть 2 возможности для указания узлов для начальной загрузки:
 
 - Секция `[bootstrap]` в конфигурационном файле
-- Файл `nodes.txt` в директории приложения (обычно `~/.pboted/nodes.txt` или `/var/lib/pboted/nodes.txt`)
+- Файлы `nodes.txt` и `peers.txt` в директории приложения (обычно `~/.pboted/` или `/var/lib/pboted/`)
 
 ## Секция `[bootstrap]`
 
-Эта опция может быть использована при первом запуске приложения, когда файл `nodex.txt` ещё не будет создан.    
-Если файл `nodex.txt` уже существует, то секция в конфигурационном файле будет пропущена.
+!!! note "Примечание"
+
+    В примере конфигурационного файла уже добавлены рекомендуемые узлы для начальной загрузки
+
+Эта опция может быть использована при первом запуске приложения, когда файлы `nodex.txt` и `peers.txt` ещё созданы.    
+Если файлы `nodex.txt` и `peers.txt` уже существуют, то секция в конфигурационном файле будет пропущена.
 
 !!! note "Примечание"
 
-    Вы можете удалить файл `nodes.txt` когда **pboted** остановлен. В таком случае параметры из секции конфигурации будут прочитаны повторно.
+    Вы можете удалить файл `nodes.txt` и `peers.txt` когда **pboted** остановлен.
+    В таком случае параметры из секции конфигурации будут прочитаны повторно.
 
 Для использования этой опции Вам необходимо:
 
@@ -28,20 +33,19 @@
 ## Bootstrap operators;
 ## Each line should be a I2P destination key in Base64 format. Lines beginning with # are ignored.
 # My friend
-address = AhG7DrbC~oMeH4r1EMGy4Nc7i5KvXyCXdPLfcTfntFmxoqREwKZi2eGQKuam5PGjNSUfNX5jJP-2fEEqPKevUWCRBtg-zQGJBTeNH6aD2EBNO~JtKsm4EYI0KOUFJFBubYb85xtwYhkDwxKG~t4RHIAVVD6HsfSCKjhrtJiuKnXaClJ77A-A95s7cf3ppy5P5L0w6wRUVUoY4YYui27k9AKKHDklme18ygk4-1VCk~VlEHt-REM0y4glBb7djYoWyf25eqb9i-c3JwiVPzbYsfz0D9Pwf2ilHoGCx76q8tXIElT6dWuXehzK9HC-nvN-TGhlsokiqMs6g7MHte0iHVOcTMMHJuVErWUlDzIp9KCM7BjyVniN-FtCFMa2S9tPAM6V3RyltR8gKCbvgopkDQnfpp6Wu76dGTnxr89k7OehitKGovCIDgWrHlwpVnsZbqSkIV6J-hNOxkt94KE9ggZMGmJPsOHjJkauRazu5qrnzSqlWuZnSrM7UVgP2K30AAAA
+address = jlOVAO2A~gM0qjbQaZQa0~OZYHwBrbc5ohUilIfsRITM1s~RxP6HoV8FKQl~mEM2Q9gPeWFW29xGP1qy-n~-aL70LUVSIba3rTwiQGpb5smvD4zxExCw~yQM0w28LOodu1yZ5xtDVljP0uruRCqZvARbP7bB8uJKJ7NPlmBsai9jIvrZFug-AbPZJKzvKsCbdCvkDivxIFFjJ9273PYogHPN1lkJZp1cPHVuU-wjEJlwVvxZb9dh3oC5m4AGoOY7SRbjbep1lnv4Zq8eEcEoTsDq77EBzwXlOMDOIB4NIW3ZxK8EJKEP-XcnDHZXUKx2R6~wGqsyaJd1uK3Tt-1M5S6AAeMSkNEuKWEdo0ugtuBRbgK9Iej0eVCQA05Y4Ysd7F1B5YJ3OC9JQnodXzhhtJa~ednw7yhOJoyvxWFDWKnA72zactlXksczn9rbxY3xHMtkezWw4lJmg1d-9sTlHEBsRhqVrEvUFdIuYljgX7YcqAWNAjpA8FzLqYijmz~7BQAEAAcAAA==
 # John Doe
-address = RRdJMFwElkeEoFzQgCqTl1fN2llsIgbY5Ql3wv4uBqh2VtvKXTZ3~Zj1DzTO~ymCw1IeCLNHvMLL87xHYaRub4hq-Ugw8UQY~gwAnYBlwEyN~pKxl78n5RrvwaoM9puhxOsKPKtVvjvvFsMLrtUC0rm7wtgMbCd0IqNgtU1p3reqejyjpiIA~Ai6~IbWIyHPIn~AlRy2m11UCdzm0XHxCZZbcN~3l8YWTNdHxp9Xdc9qdL-jTn-LZkZG-1BBMcSfnuwtYjdZaZXoXto3HMQWkS3C1Du3O-A90w0RnPlTk1FuZeU~ib5ch1pmkjvkV74kkI-quXgQp0cnxJ8Jei0CWGAvDGYWS0gIpqAKQeU7G2wyHWQyr0FKYHvPpI~-3qU6ZDEu6XZzvA7eKFasf-wx75jh93L8ItBTjZj~XB1bUn~xF-xpzP7iJKSd33lxXyOuyizG0p7ryUfSRTUGsqwFPVrhuN2bQoBAb6RnJKOpi2Co-5MhlE70Y-hbsEb8QTzNAAAA
+address = -Ab-xrc2~XR4sbi2xuGCXESkJg4G9AHLuiVLUcHXL-vL6kBCgVnytZ0rxTcNSaRTEbNZVsa8AfKeBhZp~S5kRqOa2w-OPVY4taa45ZaEdk2nHlRWn2htmzNE4fpB5VXemTHS3x-muKDfEbVf8XGPLFu2RvjlXOLDiuNC3Qa3GeZjbYcjJS-O14gLEZLaytNnU01ng3a8dt8U1EsdYmD4CnKTF-vRixgV5H8Z1KMVeTqxREUJtPYqKKVaW-E8I~JILU6nmn0FZuHPniFLCCoKGA4TbfklYNeoSOC~r4j-YbzwP6jAC9LStHpopy315YPAfF2xXt7f6C~7H47sSE6csum9PTNsBiC3evGETQsFEaJBug1TCcDWaDMcRiOOUuYkIPFdiVirSE91iBLCZX0bwVzS5xdCBQ1g-tiVa-uxCM5U7kvdt~usCU-m6Dl8t6JpHlT~1oXDRJ838K8ajUZRXc-fhOgVTnruWmsiyNWGkTbXu0QHY7F0ijJ9bq87kROPBQAEAAcAAA==
 
 ```
 
-## `nodes.txt`
-
-Если Вы хотите добавить доверенные узлы в `nodes.txt` самостоятельно, то можете просто добавить их, сохранить файл и запустить **pboted**.
+## `nodes.txt` и `peers.txt`
 
 !!! warning "Внимание"
 
-    Не редактируйте `nodes.txt` пока **pboted** запущен. Иначе он будет перезаписан.
+    Не редактируйте `nodes.txt` и `peers.txt` пока **pboted** запущен, иначе они будут перезаписаны.
 
+Если Вы хотите добавить доверенные узлы в `nodes.txt` и `peers.txt` самостоятельно, то можете просто добавить их, сохранить файлы и запустить **pboted**.
 
 ```
 # Each line is one Base64-encoded I2P destination.

@@ -25,7 +25,7 @@ In general, for building **pboted** you need several things:
     - [Debian/Ubuntu](#debian-ubuntu) (with packaging)
     - CentOS/RedHat
 
-Make sure you have all required dependencies for your system successfully installed.
+Make sure you have all required dependencies successfully installed.  
 See for common requirements in [this](#requirements) section.
 
 - Clone repository:
@@ -42,12 +42,6 @@ git submodule update --init
 cd build
 cmake <cmake options> . # see "CMake Options" section below
 make                    # you may add VERBOSE=1 to cmdline for debugging
-```
-
-- Put binary to `/usr/sbin/`
-
-```
-sudo cp pboted /usr/sbin/pboted
 ```
 
 ### CMake Options
@@ -72,7 +66,7 @@ Also there is `-L` flag for CMake that could be used to list current cached opti
 You will need a compiler and other tools that could be installed with `build-essential` and `debhelper` packages:
 
 ```
-sudo apt-get install git cmake build-essential debhelper
+sudo apt install git cmake build-essential debhelper
 ```
 
 Also you will need a bunch of development libraries:
@@ -90,10 +84,10 @@ sudo apt install \
   zlib1g-dev
 ```
 
-You may also build deb-package with the following:
+You may also build DEB-package with the following:
 
 ```
-  sudo apt-get install fakeroot devscripts dh-apparmor
+  sudo apt install fakeroot devscripts dh-apparmor
   cd pboted
   debuild --no-tgz-check -us -uc -b
 ```

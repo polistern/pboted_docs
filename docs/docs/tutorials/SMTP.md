@@ -28,31 +28,48 @@ In this case, the address consists of three parts, something like this:
 
 `NAME <IDENTITY_NAME@DOMAIN>`
 
-The NAME part is optional.   
-The IDENTITY_NAME part should be the name of the used Bote identity.   
-The DOMAIN part can be any valid domain.
+- `NAME` - can be the name of the used Bote identity
+- `IDENTITY_NAME` - can be the name of the used Bote identity
+- `DOMAIN` -  can be any valid domain
+
+At least one of the two - `NAME` or `IDENTITY_NAME` - must be present in loaded `Bote identities`  
+If both (`NAME` and `IDENTITY_NAME`) are present in in loaded Bote identities  but refer to different `Bote identities` - only the `Bote identity` specified for `IDENTITY_NAME` will be used.  
+`DOMAIN` will be ignored anyway.
 
 For example:
 
-`John Doe <johnd@bote.i2p>`
+```
+John Doe <johnd@bote.i2p>
+```
 
 #### 2. Bote style
 
-In this case, the address consists of two parts, something like this:
+In this case, the address consists of two parts:
 
 `IDENTITY_NAME <BOTE_ADDRESS>`
 
-The IDENTITY_NAME part should be the name of the used Bote identity.   
-The BOTE_ADDRESS part should be Bote address.
+- `IDENTITY_NAME` - should be the name of the used `Bote identity`
+- `BOTE_ADDRESS` - should be `Bote address`
+
+If a `Bote Identity` is found for `IDENTITY_NAME`, the `BOTE_ADDRESS` field will be replaced with the value from that identity.
 
 For example:
 
-`johnd <24noEIMPvV9CEwrSWQtIsTA7balaZ80ZOGRBAzrsBl5nv9xud~k28d9TQIgXmyyCYtHl8PJASAFDeefSc6EJ81>`
+```
+johnd <24noEIMPvV9CEwrSWQtIsTA7balaZ80ZOGRBAzrsBl5nv9xud~k28d9TQIgXmyyCYtHl8PJASAFDeefSc6EJ81>
+```
 
 ### TO
 
-Very similar to field FROM with one amendment for option 1:   
-The <IDENTITY_NAME@DOMAIN> must be in the address book for replacement.
+Very similar to field FROM and consists of two parts:
+
+`NAME <ALIAS>`
+
+- `NAME` - can be in the address book for replacement
+- `ALIAS` - can be in the address book for replacement
+
+One of the two - `NAME` or `ALIAS` - must be present in the address book.  
+If both (`NAME` and `ALIAS`) are present in the address book but refer to different `Mail Destinations` - only the `Mail Destination` specified for `ALIAS` will be used.
 
 For example, if you have this record in addressbook:
 

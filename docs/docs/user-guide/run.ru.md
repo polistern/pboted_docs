@@ -9,15 +9,10 @@
 
 ## Рекомендуемый способ запуска pboted (собранного из исходников)
 
-- Создайте директорию `/etc/pboted`:
+- Создайте директорию `/etc/pboted` и скопируйте образец конфигурационного файла:
 
 ```
 sudo mkdir /etc/pboted
-```
-
-- Скопируйте образец конфигурационного файла из `contrib/pboted.conf` в `~/.pboted/pboted.conf`:
-
-```
 sudo cp contrib/pboted.conf /etc/pboted/pboted.conf
 ```
 
@@ -32,15 +27,10 @@ sudo mkdir /var/log/pboted
 sudo chown -R pboted: /var/log/pboted
 ```
 
-- Скопируйте образец `systemd` Unit-файла из `contrib/pboted.service` в `/lib/systemd/system/pboted.service`:
+- Скопируйте образец `systemd` Unit-файла, перезагрузите конфигурацию `systemd` сервисов и запустите приложение:
 
 ```
 sudo cp contrib/pboted.service /lib/systemd/system/pboted.service
-```
-
-- Перезагрузите конфигурацию `systemd` сервисов и запустите приложение:
-
-```
 sudo systemctl daemon-reload
 sudo systemctl start pboted.service
 ```

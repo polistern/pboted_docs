@@ -4,16 +4,21 @@ Since **pboted** is a decentralized application, it needs to get information abo
 There are 2 possibilities for this:
 
 - `[bootstrap]` section in config file
-- `nodes.txt` file in application directory (usualy `~/.pboted/nodes.txt` or `/var/lib/pboted/nodes.txt`)
+- `nodes.txt` and `peers.txt` files in application directory (usualy `~/.pboted/` or `/var/lib/pboted/`)
 
 ## `[bootstrap]` section
 
-This option will be used only at the very first launch of the application, when file `nodex.txt` has not yet been generated.    
-If `nodex.txt` file already exists, then these option will be ignored. 
+!!! note "Note"
+
+    The example configuration file has already added recommended nodes for bootstrap
+
+This option will be used only at the very first launch of the application, when file `nodex.txt` and `peers.txt` has not yet been generated.    
+If `nodex.txt` and `peers.txt` files exists, then these option will be ignored. 
 
 !!! note "Note"
 
-    You can remove `nodes.txt` file while **pboted** is stopped. In this case section will be readed from configuration file.
+    You can remove `nodes.txt` and `peers.txt` files while **pboted** is stopped.
+    In this case section will be readed from configuration file.
 
 To use this option, you need in the configuration file:
 
@@ -28,21 +33,19 @@ For example:
 ## Bootstrap operators;
 ## Each line should be a I2P destination key in Base64 format. Lines beginning with # are ignored.
 # My friend
-address = AhG7DrbC~oMeH4r1EMGy4Nc7i5KvXyCXdPLfcTfntFmxoqREwKZi2eGQKuam5PGjNSUfNX5jJP-2fEEqPKevUWCRBtg-zQGJBTeNH6aD2EBNO~JtKsm4EYI0KOUFJFBubYb85xtwYhkDwxKG~t4RHIAVVD6HsfSCKjhrtJiuKnXaClJ77A-A95s7cf3ppy5P5L0w6wRUVUoY4YYui27k9AKKHDklme18ygk4-1VCk~VlEHt-REM0y4glBb7djYoWyf25eqb9i-c3JwiVPzbYsfz0D9Pwf2ilHoGCx76q8tXIElT6dWuXehzK9HC-nvN-TGhlsokiqMs6g7MHte0iHVOcTMMHJuVErWUlDzIp9KCM7BjyVniN-FtCFMa2S9tPAM6V3RyltR8gKCbvgopkDQnfpp6Wu76dGTnxr89k7OehitKGovCIDgWrHlwpVnsZbqSkIV6J-hNOxkt94KE9ggZMGmJPsOHjJkauRazu5qrnzSqlWuZnSrM7UVgP2K30AAAA
+address = jlOVAO2A~gM0qjbQaZQa0~OZYHwBrbc5ohUilIfsRITM1s~RxP6HoV8FKQl~mEM2Q9gPeWFW29xGP1qy-n~-aL70LUVSIba3rTwiQGpb5smvD4zxExCw~yQM0w28LOodu1yZ5xtDVljP0uruRCqZvARbP7bB8uJKJ7NPlmBsai9jIvrZFug-AbPZJKzvKsCbdCvkDivxIFFjJ9273PYogHPN1lkJZp1cPHVuU-wjEJlwVvxZb9dh3oC5m4AGoOY7SRbjbep1lnv4Zq8eEcEoTsDq77EBzwXlOMDOIB4NIW3ZxK8EJKEP-XcnDHZXUKx2R6~wGqsyaJd1uK3Tt-1M5S6AAeMSkNEuKWEdo0ugtuBRbgK9Iej0eVCQA05Y4Ysd7F1B5YJ3OC9JQnodXzhhtJa~ednw7yhOJoyvxWFDWKnA72zactlXksczn9rbxY3xHMtkezWw4lJmg1d-9sTlHEBsRhqVrEvUFdIuYljgX7YcqAWNAjpA8FzLqYijmz~7BQAEAAcAAA==
 # John Doe
-address = RRdJMFwElkeEoFzQgCqTl1fN2llsIgbY5Ql3wv4uBqh2VtvKXTZ3~Zj1DzTO~ymCw1IeCLNHvMLL87xHYaRub4hq-Ugw8UQY~gwAnYBlwEyN~pKxl78n5RrvwaoM9puhxOsKPKtVvjvvFsMLrtUC0rm7wtgMbCd0IqNgtU1p3reqejyjpiIA~Ai6~IbWIyHPIn~AlRy2m11UCdzm0XHxCZZbcN~3l8YWTNdHxp9Xdc9qdL-jTn-LZkZG-1BBMcSfnuwtYjdZaZXoXto3HMQWkS3C1Du3O-A90w0RnPlTk1FuZeU~ib5ch1pmkjvkV74kkI-quXgQp0cnxJ8Jei0CWGAvDGYWS0gIpqAKQeU7G2wyHWQyr0FKYHvPpI~-3qU6ZDEu6XZzvA7eKFasf-wx75jh93L8ItBTjZj~XB1bUn~xF-xpzP7iJKSd33lxXyOuyizG0p7ryUfSRTUGsqwFPVrhuN2bQoBAb6RnJKOpi2Co-5MhlE70Y-hbsEb8QTzNAAAA
+address = -Ab-xrc2~XR4sbi2xuGCXESkJg4G9AHLuiVLUcHXL-vL6kBCgVnytZ0rxTcNSaRTEbNZVsa8AfKeBhZp~S5kRqOa2w-OPVY4taa45ZaEdk2nHlRWn2htmzNE4fpB5VXemTHS3x-muKDfEbVf8XGPLFu2RvjlXOLDiuNC3Qa3GeZjbYcjJS-O14gLEZLaytNnU01ng3a8dt8U1EsdYmD4CnKTF-vRixgV5H8Z1KMVeTqxREUJtPYqKKVaW-E8I~JILU6nmn0FZuHPniFLCCoKGA4TbfklYNeoSOC~r4j-YbzwP6jAC9LStHpopy315YPAfF2xXt7f6C~7H47sSE6csum9PTNsBiC3evGETQsFEaJBug1TCcDWaDMcRiOOUuYkIPFdiVirSE91iBLCZX0bwVzS5xdCBQ1g-tiVa-uxCM5U7kvdt~usCU-m6Dl8t6JpHlT~1oXDRJ838K8ajUZRXc-fhOgVTnruWmsiyNWGkTbXu0QHY7F0ijJ9bq87kROPBQAEAAcAAA==
 
 ```
 
-
-## `nodes.txt`
-
-If you want to add nodes to `nodes.txt` yourself, then just add them, save the file, and than start **pboted**.
+## `nodes.txt` and `peers.txt`
 
 !!! warning "Warning"
 
-    Do not edit `nodes.txt` file while **pboted** is running as it will be overwritten.
+    Do not edit `nodes.txt` and `peers.txt` files while **pboted** is running as it will be overwritten.
 
+If you want to add nodes to `nodes.txt` and `peers.txt` yourself, then just add them, save the files, and than start **pboted**.
 
 ```
 # Each line is one Base64-encoded I2P destination.

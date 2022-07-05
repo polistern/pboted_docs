@@ -1,10 +1,9 @@
 # Usage
 
 You may need the utilities from the [pboted-tools](https://github.com/polistern/pboted-tools/) repository to work with **pboted**.   
-In the future, their list will grow.   
-There are plans to transfer all means for interaction into a separate [CLI utility](https://github.com/polistern/pbotectl).
+In the near future, this functionality will be implemented as a [CLI utility](https://github.com/polistern/pbotectl).
 
-You can only continue to use your Java Bote identities if:
+You can only continue to use your `Email identities` from **Java Bote** if:
 
 - your address is created using the one of the follow algorithm (others are not supported yet):
     - `ECDH-256/ECDSA-256/AES-256/SHA-256`
@@ -31,7 +30,6 @@ See [SMTP](../tutorials/SMTP.md)
 - Format it with [message_formatter](https://github.com/polistern/pboted-tools/tree/main/message_formatter)
 - Put result file to `outbox` directory in pboted working directory
 - pboted will automatically check `outbox` and send email
-- After sending email file will be moved to `sent` directory
 
 ## Receiving email
 

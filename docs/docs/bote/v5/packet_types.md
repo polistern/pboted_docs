@@ -1,21 +1,25 @@
 # Packet Types
 
-* Version 5 is incompatible to earlier versions.   
-* Version 5 clients will not talk to higher versions.     
-* Strings in packets are UTF8 encoded.
-* `E` denotes encrypted data.   
+* Version 5 is incompatible to earlier versions.
+* Version 5 clients will talk to higher versions.
+* Strings in packets are UTF-8 encoded.
+* `E` denotes encrypted data.
 
 For supported encryption and signature algorithms, see [Cryptography](cryptography.md)
 
 ## 1. Data Packets
 
-All `Data packets` start with one byte for the `Packet type`, followed by one byte for the `Protocol version`. 
+All `Data packets` start with:
+
+- one byte for the `Packet type`;
+- one byte for the `Protocol version`.
 
 These are **always sent wrapped** in a `Communication Packet` (see 2.).
 
 ### 1.1 Email Packet (encrypted)
 
-An email or email fragment, one recipient. Part of the Packet is encrypted with the recipient's key.
+An email or email fragment, one recipient.  
+Part of the Packet is encrypted with the recipient's key.
 
 | Field   | Data Type  | Description                                                         |
 |---------|------------|---------------------------------------------------------------------|
@@ -50,32 +54,32 @@ Storage format for the `Incomplete Email`
 
 Supported algorithms may differ depending on the implementation. 
 
-| Value | Description    |
-|-------|----------------|
-| `0`   | Uncompressed   |
-| `1`   | LZMA           |
-| `2`   | ZLIB `[VER 5]` |
+| Value | Description    | Java Bote | pboted                 |
+|-------|----------------|-----------|------------------------|
+| `0`   | Uncompressed   | yes       | yes (to old addresses) |
+| `1`   | LZMA           | yes       | yes (receive only)     |
+| `2`   | ZLIB `[VER 5]` | no        | yes (to new addresses) |
 
 ### 1.3 Index Packet
 
 Contains the DHT keys of one or more `Email Packets`, a `Delete Verification` Hash, and UNIX timestamp for each DHT key.
 
-| Field   | Data Type  | Description                                                                  |
-|---------|------------|------------------------------------------------------------------------------|
-| `TYPE`  | 1 byte     | Value = `'I'`                                                                |
-| `VER`   | 1 byte     | Protocol version                                                             |
-| `DH`    | 32 bytes   | SHA-256 hash of the recipient's `Email destination`                            |
-| `NP`    | 4 bytes    | Number of entries in the Packet                                              |
-| `KEY1`  | 32 bytes   | DHT key of the first Email Packet                                            |
+| Field   | Data Type  | Description                                                                      |
+|---------|------------|----------------------------------------------------------------------------------|
+| `TYPE`  | 1 byte     | Value = `'I'`                                                                    |
+| `VER`   | 1 byte     | Protocol version                                                                 |
+| `DH`    | 32 bytes   | SHA-256 hash of the recipient's `Email destination`                              |
+| `NP`    | 4 bytes    | Number of entries in the Packet                                                  |
+| `KEY1`  | 32 bytes   | DHT key of the first Email Packet                                                |
 | `DV1`   | 32 bytes   | `Delete verification` hash for `KEY1` (SHA-256 hash of `DA` in the email Packet) |
-| `TIM1`  | 4 bytes    | The time the key `KEY1` was added                                            |
-| `KEY2`  | 32 bytes   | DHT key of the second Email Packet                                           |
+| `TIM1`  | 4 bytes    | The time the key `KEY1` was added                                                |
+| `KEY2`  | 32 bytes   | DHT key of the second Email Packet                                               |
 | `DV2`   | 32 bytes   | `Delete verification` hash for `KEY2` (SHA-256 hash of `DA` in the email Packet) |
-| `TIM2`  | 4 bytes    | The time the key `KEY2` was added                                            |
-| ...     | ...        | ...                                                                          |
-| `KEYn`  | 32 bytes   | DHT key of the n-th Email Packet                                             |
+| `TIM2`  | 4 bytes    | The time the key `KEY2` was added                                                |
+| ...     | ...        | ...                                                                              |
+| `KEYn`  | 32 bytes   | DHT key of the n-th Email Packet                                                 |
 | `DVn`   | 32 bytes   | `Delete verification` hash for `KEYn` (SHA-256 hash of `DA` in the email Packet) |
-| `TIMn`  | 4 bytes    | The time the key `KEYn` was added                                            |
+| `TIMn`  | 4 bytes    | The time the key `KEYn` was added                                                |
 
 ### 1.4 Deletion Info Packet
 
@@ -142,15 +146,22 @@ A name/`Email Destination` mapping.
 
 ## 2. Communication Packets
 
-`Communication packets` are used for sending data between I2P-Bote nodes.   
-They can contain a `Data Packet`, see 3.1.   
-All `Communication Packets` start with a four-byte `Prefix`, followed by one byte for the `Packet type`, one byte for the `Packet version`, and a 32-byte `Correlation ID`.   
+`Communication packets` are used for sending data between I2P-Bote nodes.
+
+They can contain a `Data Packet`, see 3.1.
+
+All `Communication Packets` start with:
+
+- four-byte `Prefix`;
+- one byte for the `Packet type`;
+- one byte for the `Packet version`;
+- 32-byte `Correlation ID`.   
 
 ### 2.1 Relay Request
 
-A Packet that tells the receiver to communicate with a peer, or peers, on behalf of the sender.    
-It contains an `I2P destination`, a delay time, and a `Communication Packet`.    
+A Packet that tells the receiver to communicate with a peer, or peers, on behalf of the sender.
 
+It contains an `I2P destination`, a delay time, and a `Communication Packet`.    
 
 | Field   | Data Type  | Description                                  |
 |---------|------------|----------------------------------------------|
@@ -169,7 +180,8 @@ It contains an `I2P destination`, a delay time, and a `Communication Packet`.
 
 ### 2.2 Relay Return Request
 
-Contains a `Return Chain` and a payload. The final destination is unknown to the sender or any of the hops.   
+Contains a `Return Chain` and a payload. The final destination is unknown to the sender or any of the hops.
+
 Used for responding to a `Relayed Data Packet`.
 
 | Field   | Data Type  | Description                                            |
@@ -203,7 +215,8 @@ Not a Packet itself, but part of `Relay Request` or`Relay Return Request`.
 
 ### 2.4 Fetch Request
 
-Request to a chain endpoint to retrieve an `Index Packet` or `Email Packet`.    
+Request to a chain endpoint to retrieve an `Index Packet` or `Email Packet`.
+
 `Response Packet` with correct status is expected back. `[VER 5]`
 
 | Field   | Data Type  | Description                                            |
@@ -247,7 +260,8 @@ Response to a `Retrieve Request`, `Fetch Request`, `Find Close Peers Request`, o
 
 ### 2.6 Peer List Request
 
-A request for a list of high-reachability relay peers.    
+A request for a list of high-reachability relay peers.
+
 `Response Packet` with correct status is expected back `[VER 5]`.
 
 | Field   | Data Type  | Description                                  |
@@ -261,7 +275,8 @@ A request for a list of high-reachability relay peers.
 
 ### 3.1 Retrieve Request
 
-A request to a peer to return a data item for a given DHT key and data type.    
+A request to a peer to return a data item for a given DHT key and data type.
+
 `Response Packet` with correct status is expected back `[VER 5]`.
 
 | Field   | Data Type  | Description                                  |
@@ -283,7 +298,8 @@ A request to a peer to return a data item for a given DHT key and data type.
 
 ### 3.2 Deletion Query
 
-A request to a node to return a `Deletion Info Packet` for a given `Email Packet` DHT key.  
+A request to a node to return a `Deletion Info Packet` for a given `Email Packet` DHT key.
+
 Used to determine mail delivery.
 
 `Response Packet` with correct status is expected back. `[VER 5]`  
@@ -299,7 +315,8 @@ Used to determine mail delivery.
 
 ### 3.3 Store Request
 
-DHT Store Request.    
+DHT Store Request.
+
 `Response Packet` with correct status is expected back `[VER 5]`.
 
 | Field   | Data Type  | Description                                  |
@@ -315,7 +332,8 @@ DHT Store Request.
 
 ### 3.4 Email Packet Delete Request
 
-Request to delete an `Email Packet` by DHT key.    
+Request to delete an `Email Packet` by DHT key.
+
 `Response Packet` with correct status is expected back `[VER 5]`.
 
 | Field   | Data Type  | Description                                                      |
@@ -329,7 +347,8 @@ Request to delete an `Email Packet` by DHT key.
 
 ### 3.5 Index Packet Delete Request
 
-Request to remove one or more entries (`Email Packet` keys) from an `Index Packet`.    
+Request to remove one or more entries (`Email Packet` keys) from an `Index Packet`.
+
 `Response Packet` with correct status is expected back `[VER 5]`.
 
 | Field   | Data Type  | Description                                                                           |
@@ -350,7 +369,8 @@ Request to remove one or more entries (`Email Packet` keys) from an `Index Packe
 
 ### 3.6 Find Close Peers
 
-Request for K peers close to a key.    
+Request for K peers close to a key.
+
 `Response Packet` with correct status is expected back `[VER 5]`.
 
 | Field   | Data Type  | Description                                  |

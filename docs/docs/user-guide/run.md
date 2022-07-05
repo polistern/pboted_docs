@@ -9,15 +9,10 @@
 
 ## Recommended way to run pboted (built from source)
 
-- Create `/etc/pboted` directory:
+- Create `/etc/pboted` directory and copy example config:
 
 ```
 sudo mkdir /etc/pboted
-```
-
-- Copy example config from `contrib/pboted.conf` to `~/.pboted/pboted.conf`:
-
-```
 sudo cp contrib/pboted.conf /etc/pboted/pboted.conf
 ```
 
@@ -32,22 +27,17 @@ sudo mkdir /var/log/pboted
 sudo chown -R pboted: /var/log/pboted
 ```
 
-- Copy example systemd service from `contrib/pboted.service` to `/lib/systemd/system/pboted.service`:
+- Copy example `systemd` service file, reload daemons configuration, and start unit:
 
 ```
 sudo cp contrib/pboted.service /lib/systemd/system/pboted.service
-```
-
-- Reload daemons configuration and start unit:
-
-```
 sudo systemctl daemon-reload
 sudo systemctl start pboted.service
 ```
 
 - Now you can see in log files that all works. Also, you can see the status of the SAM session in the I2P Router console.
 
-## User service configuration
+## Running in userspace
 
 - Copy example config from `contrib/pboted.conf` to `~/.pboted/pboted.conf`:
 

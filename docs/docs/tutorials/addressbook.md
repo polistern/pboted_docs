@@ -1,11 +1,16 @@
 # AddressBook
 
-This feature allows you to use short names when forming letters by third-party applications (currently, when using the SMTP protocol).    
+This feature allows you to use short names when forming letters by third-party applications (currently, when using the SMTP protocol).
+
 This feature is most useful for sending emails from applications that expect usual email addresses.
 
 ## Usage
 
-First you need to fill in file `addressbook.txt` in pboted data directory (usually it is `/var/lib/pboted/addressbook.txt` or `~/.pboted/addressbook.txt`).   
+!!! warning "Warning"
+
+    Do not edit `addressbook.txt` file while **pboted** is running as it will be overwritten.
+
+First you need to fill in file `addressbook.txt` in **pboted** data directory (usually it is `/var/lib/pboted/addressbook.txt` or `~/.pboted/addressbook.txt`).   
 For example:
 
 ```
@@ -22,10 +27,6 @@ johnd2@example.com;John Doe 2;l0pnj08OwrlWMDZjeuntl~pyI7rrtq2bhcxsYPXlMAo7uI3bOB
 root@localhost;root;7uI3bOBph5pUAgVT5MWxg8lFPYvT2O6LpPVUHL-Sqdl24noEIMPvV9CEwrSWQtIsTA7balaZ80ZOGRBAzrsBl5
 
 ```
-
-!!! warning "Warning"
-
-    Do not edit `addressbook.txt` file while **pboted** is running as it will be overwritten.
 
 When you're done filling out the `addressbook.txt` file, start the **pboted**.   
 

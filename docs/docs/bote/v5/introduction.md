@@ -1,19 +1,20 @@
 # Introduction (DRAFT)
 
 I2P-Bote is a serverless pseudonymous email exchange service for the I2P network.  
-Emails are stored encrypted in a Kademlia DHT formed by all I2P-bote nodes. There is a SMTP/POP3 interface that lets the user send/read email.
+Emails are stored encrypted in a Kademlia DHT formed by all I2P-bote nodes.
 
-Email can be sent through a number of other nodes (relays) for increased anonymity, or directly to a set of storage nodes for faster delivery. Receiving email through relays is not yet implemented.
+Email can be sent through a number of other nodes (relays) for increased anonymity, or directly to a set of storage nodes for faster delivery.
 
-All nodes are created equal.
-There are no "supernodes" or designated relay/storage nodes.
-Everybody acts as a potential relay and storage node.
-The maximum amount of disk space used for relayed/stored email packets is user-configurable.
-Before an email is sent, it is broken up into packets 30 kb or smaller and encrypted with the recipient's public key.
+All nodes are created equal.  
+There are no "supernodes" or designated relay/storage nodes.  
+Everybody acts as a potential relay and storage node.  
+The maximum amount of disk space used for relayed/stored email packets is user-configurable.  
+Before an email is sent, it is broken up into packets 30 kb or smaller and encrypted with the recipient's public key.  
 The packets are then stored in the DHT.
 
-Email packets are stored redundantly in a Kademlia DHT (distributed hash table).   
-Stored email packets and relay packets are kept for at least 100 days, during which the recipient can download them. If a node runs out of email storage space, and there are no old packets that can be deleted, the node refuses storage requests.
+Email packets are stored redundantly in a Kademlia DHT (distributed hash table).  
+Stored email packets and relay packets are kept for at least 100 days, during which the recipient can download them.  
+If a node runs out of email storage space, and there are no old packets that can be deleted, the node refuses storage requests.
 
 Below is a diagram of how an email Packet is routed from a sender to a recipient:
 

@@ -22,7 +22,15 @@ The previously used option for storing and passing `Email Destinations` and `Ema
 
 ### Version 0
 
-An `Email Destination` is a Base64 string containing a public encryption key and a signature verification key.   
+- An `Email Destination` is a Base64 string containing:
+    - public encryption key;
+    - public signature verification key.
+- An `Email Identity` is a Base64 string containing:
+    - public encryption key;
+    - public signature verification key;
+    - private encryption key;
+    - private signature key.
+
 Example of a 512-character `Email Destination` (ElGamal-2048/DSA-1024):
   
 ```
@@ -47,12 +55,12 @@ Used by **pboted** and **Java Bote**
 
 `Email Destination` type can only be determined by the length of the base64 string:
 
-| ID | Public    | Private  |
-|----|-----------|----------|
-| 1  | 512       | 880      |
-| 2  | 86        | 172      |
-| 3  | 174       | 348      |
-| 4  | 2079      | 97813    |
+| ID | Public Part | Private Part |
+|----|-------------|--------------|
+| 1  | 512         | 880          |
+| 2  | 86          | 172          |
+| 3  | 174         | 348          |
+| 4  | 2079        | 97813        |
 
 ### Version 1
 
@@ -62,11 +70,11 @@ Template:
 `<data format>.<encoded data>`
 
 - data format - Can be (for now):
-	- **b32** (`base32`)
-	- **b64** (`base64`) 
+  - **b32** (`Base32`)
+  - **b64** (`Base64`) 
 - encoded data - Can be bytes with:
-	- `Email Destination` (*public keys*)
-	- `Email Identity` (*with public and private keys*)
+  - `Email Destination` (*public keys only*)
+  - `Email Identity` (*public and private keys*)
 
 
 #### `Email Destination` format
@@ -82,7 +90,10 @@ Template:
 | `SDATA`  | M byte | signing public key (field length depends on the type) |
 
 Example:
-` `
+
+```
+b64.AQUFAgJI2e47rS9VkSEfM4ZHfuimMA1EoUmLZd1DNSX8fqocLA3v8cv~XSnQpUSax~9Gs2cFH2rtNOZekhF4i2RQ7QOI
+```
 
 #### `Email Identity` format
 
@@ -99,7 +110,10 @@ Example:
 | `SPDATA` | Y byte | signing private key (field length depends on the type)|
 
 Example:
-` `
+
+```
+b64.AQUFAgJI2e47rS9VkSEfM4ZHfuimMA1EoUmLZd1DNSX8fqocLA3v8cv~XSnQpUSax~9Gs2cFH2rtNOZekhF4i2RQ7QOISPTr4NDUvlFrAt3SfPtZe6iF-NvfKlkuB8caWNqhR1jvOTDon2w~pDh~0yloEMkwONyugyKmTgscruV4SaAfBQ==
+```
 
 ## 2. Fingerprints For Directory Entries
 
