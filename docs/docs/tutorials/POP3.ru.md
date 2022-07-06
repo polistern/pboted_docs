@@ -10,7 +10,7 @@ _Работа проверена с [Mozilla Thunderbird](https://www.thunderbir
 [pop3]
 enabled = true
 address = 127.0.0.1
-port = 110
+port = 9110
 ```
 
 - Перезапустить **pboted** для применения настроек

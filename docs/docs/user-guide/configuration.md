@@ -2,7 +2,7 @@
 
 !!! note "Note"
 
-    default value of option will be shown in braces
+    Default value of option will be shown in braces
 
 Run `pboted --help` to show builtin help message.
 
@@ -28,13 +28,13 @@ Run `pboted --help` to show builtin help message.
 
 ## SAM
 
-| Option      | Description                          |
-|-------------|--------------------------------------|
-| sam.name    | If SAM is enabled. true by default   |
-| sam.address | I2P SAM address (default: 127.0.0.1) |
-| sam.tcp     | I2P SAM TCP port (default: 7656)     |
-| sam.udp     | I2P SAM UDP port (default: 7655)     |
-| 
+| Option      | Description                                            |
+|-------------|--------------------------------------------------------|
+| sam.name    | If SAM is enabled. true by default                     |
+| sam.address | I2P SAM address (default: 127.0.0.1)                   |
+| sam.tcp     | I2P SAM TCP port (default: 7656)                       |
+| sam.udp     | I2P SAM UDP port (default: 7655)                       |
+| sam.key     | Path to I2P destination private key file (default: `destination.key` in working directory) |
 
 ## Bootstrap
 
@@ -63,7 +63,7 @@ address = <N-th address>
 |--------------|------------------------------------------|
 | smtp.enabled | Allow connect via SMTP (default: true).  |
 | smtp.address | SMTP listen address (default: 127.0.0.1) |
-| smtp.port    | SMTP listen TCP port (default: 25)       |
+| smtp.port    | SMTP listen TCP port (default: 9025)     |
 
 ## POP3
 
@@ -71,4 +71,4 @@ address = <N-th address>
 |--------------|------------------------------------------|
 | pop3.enabled | Allow connect via POP3 (default: true).  |
 | pop3.address | POP3 listen address (default: 127.0.0.1) |
-| pop3.port    | POP3 listen port (default: 110)          |
+| pop3.port    | POP3 listen TCP port (default: 9110)     |

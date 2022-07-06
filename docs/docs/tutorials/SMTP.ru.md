@@ -10,7 +10,7 @@ _Работа проверена с [Mozilla Thunderbird](https://www.thunderbir
 [smtp]
 enabled = true
 address = 127.0.0.1
-port = 25
+port = 9025
 ```
 
 - Перезапустить **pboted** для применения настроек

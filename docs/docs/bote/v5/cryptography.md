@@ -76,7 +76,6 @@ Template:
   - `Email Destination` (*public keys only*)
   - `Email Identity` (*public and private keys*)
 
-
 #### `Email Destination` format
 
 | Field    | Size   | Description                                           |

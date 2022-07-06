@@ -10,7 +10,7 @@ To be able to send email through SMTP you need to:
 [smtp]
 enabled = true
 address = 127.0.0.1
-port = 25
+port = 9025
 ```
 
 - Restart the **pboted** to apply the settings

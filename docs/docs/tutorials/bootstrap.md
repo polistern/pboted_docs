@@ -45,6 +45,11 @@ address = -Ab-xrc2~XR4sbi2xuGCXESkJg4G9AHLuiVLUcHXL-vL6kBCgVnytZ0rxTcNSaRTEbNZVs
 
     Do not edit `nodes.txt` and `peers.txt` files while **pboted** is running as it will be overwritten.
 
+!!! note "Note"
+
+    Duplicate addresses in `nodes.txt` and `peers.txt` files will be ignored when starting **pboted**.
+    Nodes will be added in one instance.
+
 If you want to add nodes to `nodes.txt` and `peers.txt` yourself, then just add them, save the files, and than start **pboted**.
 
 ```
