@@ -61,7 +61,7 @@ johnd <24noEIMPvV9CEwrSWQtIsTA7balaZ80ZOGRBAzrsBl5nv9xud~k28d9TQIgXmyyCYtHl8PJAS
 
 ### TO
 
-Very similar to field FROM and consists of two parts:
+Field consists of two parts:
 
 `NAME <ALIAS>`
 

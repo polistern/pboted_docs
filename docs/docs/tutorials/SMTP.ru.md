@@ -32,8 +32,8 @@ port = 9025
 - `IDENTITY_NAME` - может содержать имя доступной `Bote идентичности`
 - `DOMAIN` - может содержать любой валидный домен
 
-Минимум одно из двух - `NAME` или `IDENTITY_NAME` - должно присутствовать загруженных `Bote идентичностях`  
-Если оба (`NAME` и `IDENTITY_NAME`) присутствуют в адресной книге, но относятся к разным `Bote идентичностям` - будет использована только `Bote идентичность`, указанная для `IDENTITY_NAME`.  
+Минимум одно из двух - `NAME` или `IDENTITY_NAME` - должно присутствовать в загруженных `Bote идентичностях`.  
+Если оба (`NAME` и `IDENTITY_NAME`) присутствуют в загруженных `Bote идентичностях`, но относятся к разным `Bote идентичностям` - будет использована только `Bote идентичность`, указанная для `IDENTITY_NAME`.  
 `DOMAIN` будет проигнорирован в любом случае.
 
 Например:
@@ -61,7 +61,7 @@ johnd <24noEIMPvV9CEwrSWQtIsTA7balaZ80ZOGRBAzrsBl5nv9xud~k28d9TQIgXmyyCYtHl8PJAS
 
 ### TO
 
-Очень похоже на поле `FROM` и содержит две обязательные части:
+Поле содержит две обязательные части:
 
 `NAME <ALIAS>`
 
@@ -77,6 +77,6 @@ johnd <24noEIMPvV9CEwrSWQtIsTA7balaZ80ZOGRBAzrsBl5nv9xud~k28d9TQIgXmyyCYtHl8PJAS
 johnd1@bote.i2p;John Doe 1;24noEIMPvV9CEwrSWQtIsTA7balaZ80ZOGRBAzrsBl5nv9xud~k28d9TQIgXmyyCYtHl8PJASAFDeefSc6EJ81
 ```
 
-То Вы можете заполнить `FROM` так:
+То Вы можете заполнить `TO` так:
 
 `TO: John Doe <johnd1@bote.i2p>`

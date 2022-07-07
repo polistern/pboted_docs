@@ -8,7 +8,7 @@ You can install binary packages from the [latest release page](https://github.co
 
 ### Requirements
 
-In general, for building **pboted** you need several things:
+For building **pboted** you need several things:
 
 * compiler with c++17 support (for example: gcc >= 5, clang)
 * cmake >= 3.7
@@ -40,8 +40,8 @@ git submodule update --init
 
 ```
 cd build
-cmake <cmake options> . # see "CMake Options" section below
-make                    # you may add VERBOSE=1 to cmdline for debugging
+cmake <cmake options> . # See "CMake Options" section below
+make                    # You may add VERBOSE=1 to cmdline for debugging
 ```
 
 ### CMake Options

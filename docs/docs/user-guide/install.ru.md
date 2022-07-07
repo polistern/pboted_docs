@@ -40,16 +40,16 @@ git submodule update --init
 
 ```
 cd build
-cmake <cmake options> . # смотри секцию "CMake Options" ниже
-make                    # для отладки можно добавить VERBOSE=1
+cmake <cmake options> . # Смотри секцию "Опции CMake" ниже
+make                    # Для отладки можно добавить VERBOSE=1
 ```
 
 ### Опции CMake
 
 Доступные опции CMake (каждая опция имеет вид `-D<key>=<value>`, больше информации в `man 1 cmake`):
 
-* `CMAKE_BUILD_TYPE` тип сборки (Debug/Release, по умолчанию: без оптимизаций и отладки)
-* `WITH_STATIC`      статичная сборка pboted (по умолчанию: OFF)
+- `CMAKE_BUILD_TYPE` тип сборки (Debug/Release, по умолчанию: без оптимизаций и отладки)
+- `WITH_STATIC`      статичная сборка pboted (по умолчанию: OFF)
 
 Для CMake доступен флаг `-L` для просмотра текущих опций сборки:
 

@@ -12,9 +12,10 @@ nav:
   - Installing: user-guide/install.md
   - Running: user-guide/run.md
   - Configuring: user-guide/configuration.md
-  - Files: user-guide/files.md
   - Usage: user-guide/usage.md
 - Tutorials:
+  - Glossary of Terms: tutorials/terms.md
+  - Files: tutorials/files.md
   - Bootstrap: tutorials/bootstrap.md
   - AddressBook: tutorials/addressbook.md
   - SMTP: tutorials/SMTP.md
@@ -23,7 +24,6 @@ nav:
 - Bote Protocol:
   - Version 5:
     - Description: bote/v5/version5.md
-    - Glossary of Terms: bote/v5/terms.md
     - Introduction: bote/v5/introduction.md
     - Kademlia: bote/v5/kademlia.md
     - Packet Types: bote/v5/packet_types.md

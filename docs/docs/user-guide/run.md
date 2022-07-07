@@ -7,7 +7,7 @@
 - Restart I2P router   
 - Local TCP port 7656 and UDP port 7655 should be available
 
-## Recommended way to run pboted (built from source)
+## Recommended way to run (built from source)
 
 - Create `/etc/pboted` directory and copy example config:
 
@@ -39,9 +39,10 @@ sudo systemctl start pboted.service
 
 ## Running in userspace
 
-- Copy example config from `contrib/pboted.conf` to `~/.pboted/pboted.conf`:
+- Create `~/.pboted` directory and сopy example config from `contrib/pboted.conf` to `~/.pboted/pboted.conf`:
 
 ```
+mkdir ~/.pboted
 cp contrib/pboted.conf ~/.pboted/pboted.conf
 ```
 

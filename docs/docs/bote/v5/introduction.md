@@ -7,8 +7,7 @@ Email can be sent through a number of other nodes (relays) for increased anonymi
 
 All nodes are created equal.  
 There are no "supernodes" or designated relay/storage nodes.  
-Everybody acts as a potential relay and storage node.  
-The maximum amount of disk space used for relayed/stored email packets is user-configurable.  
+Everybody acts as a potential relay and storage node.   
 Before an email is sent, it is broken up into packets 30 kb or smaller and encrypted with the recipient's public key.  
 The packets are then stored in the DHT.
 
@@ -98,5 +97,5 @@ If both sender and recipient chose not to use relays, the diagram looks like thi
  `-----------'
 ```
 
-I2P-Bote uses base64 strings for addresses. They are called [Email Destinations](terms.md#email-destination) and can be between 86 and 512 characters long, depending on the type of encryption the user chooses.  
+I2P-Bote uses base64 strings for addresses. They are called [Email Destinations](../../tutorials/terms.md#email-destination) and can be between 86 and 512 characters long, depending on the type of encryption the user chooses.  
 For more details see [Cryptography](cryptography.md).

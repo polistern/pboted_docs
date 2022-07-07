@@ -1,40 +1,36 @@
 # Configuration
 
-!!! note "Note"
-
-    Default value of option will be shown in braces
-
 Run `pboted --help` to show builtin help message.
 
 ## General options
 
 !!! note "Note"
 
-    `datadir` and `service` options are only used as arguments for pboted, these options have no effect when set in `pboted.conf`.
+    `service` option are only used as argument for pboted, these option have no effect when set in `pboted.conf`.
 
-| Option     | Description                        |
-|------------|------------------------------------|
-| conf       | Config file (default: ~/.pboted/pboted.conf or /etc/pboted/pboted.conf). This parameter will be silently ignored if the specified config file does not exist. |
-| pidfile    | Where to write pidfile (default: pboted.pid) |
-| daemon     | pboted will go to background after start |
-| service    | pboted will use system folders like '/var/lib/pboted' |
-| log        | Logs destination: stdout, file, syslog (stdout if not set or invalid) (if daemon, stdout/unspecified are replaced by file in some cases) |
-| logfile    | Path to logfile (default: autodetect) |
-| loglevel   | Log messages above this level (`debug`, `info`, `warn`, `error`, `none`; default: `info`) |
-| logclftime | Write full CLF-formatted date and time to log (default: write only time) |
-| host       | pboted external IP for incoming connections (default: 0.0.0.0) |
-| port       | UDP port to listen for incoming connections (default: 5050) |
-| storage    | Limit for local storage usage (default: 50 MiB) |
+| Option     | Description                                                                                              | Default                                                |
+|------------|----------------------------------------------------------------------------------------------------------|--------------------------------------------------------|
+| daemon     | pboted will go to background after start                                                                 | no                                                     |
+| service    | pboted will use system folders like `/var/lib/pboted`                                                    | no                                                     |
+| conf       | Config file. This parameter will be silently ignored if the specified config file does not exist.        | `~/.pboted/pboted.conf` or `/etc/pboted/pboted.conf`   |
+| pidfile    | Where to write pidfile                                                                                   | `~/.pboted/pboted.pid` or `/var/lib/pboted/pboted.pid` |
+| log        | Logs destination: `stdout`, `file`, `syslog` (if daemon, `stdout`/`unspecified` are replaced by `file` in some cases) | `stdout` if not set or invalid            |
+| logfile    | Path to logfile                                                                                          | autodetect                                             |
+| loglevel   | Log messages above this level (`debug`, `info`, `warn`, `error`, `none`)                                 | `info`                                                 |
+| logclftime | Write full CLF-formatted date and time to log (default: write only time)                                 | no                                                     |
+| host       | External IP for incoming connections                                                                     | `0.0.0.0`                                              |
+| port       | UDP port to listen for incoming connections                                                              | `5050`                                                 |
+| storage    | Limit for local storage usage (`B`, `KiB`, `MiB`, `GiB`, `TiB`)                                          | `50 MiB`                                               |
 
 ## SAM
 
-| Option      | Description                                            |
-|-------------|--------------------------------------------------------|
-| sam.name    | If SAM is enabled. true by default                     |
-| sam.address | I2P SAM address (default: 127.0.0.1)                   |
-| sam.tcp     | I2P SAM TCP port (default: 7656)                       |
-| sam.udp     | I2P SAM UDP port (default: 7655)                       |
-| sam.key     | Path to I2P destination private key file (default: `destination.key` in working directory) |
+| Option      | Description                              | Default                                                          |
+|-------------|------------------------------------------|------------------------------------------------------------------|
+| sam.name    | Nickname, showed in I2P router           | `pboted`                                                         |
+| sam.address | I2P roter address with enabled SAM       | `127.0.0.1`                                                      |
+| sam.tcp     | I2P SAM TCP port                         | `7656`                                                           |
+| sam.udp     | I2P SAM UDP port                         | `7655`                                                           |
+| sam.key     | Path to I2P destination private key file | `~/.pboted/destination.key` or `/var/lib/pboted/destination.key` |
 
 ## Bootstrap
 
@@ -42,9 +38,9 @@ Run `pboted --help` to show builtin help message.
 
     The example configuration file has already added nodes for bootstrap
 
-| Option            | Description                        |
-|-------------------|------------------------------------|
-| bootstrap.address | These are the nodes with high uptime and the most information about peers in the network. To get started, you need at least one node that supports protocol version 4 or higher. Each line should be a I2P destination key in Base64 format. |
+| Option            | Description                        | Default |
+|-------------------|------------------------------------|---------|
+| bootstrap.address | These are the nodes with high uptime and the most information about peers in the network. To get started, you need at least one node that supports protocol version 4 or higher. Each line should be a I2P destination key in Base64 format. | - |
 
 You can specify this parameter multiple times with different addresses.  
 For example: 
@@ -59,16 +55,16 @@ address = <N-th address>
 
 ## SMTP
 
-| Option       | Description                              |
-|--------------|------------------------------------------|
-| smtp.enabled | Allow connect via SMTP (default: true).  |
-| smtp.address | SMTP listen address (default: 127.0.0.1) |
-| smtp.port    | SMTP listen TCP port (default: 9025)     |
+| Option       | Description          | Default     |
+|--------------|----------------------|-------------|
+| smtp.enabled | Enable SMTP          | `true`      |
+| smtp.address | SMTP listen address  | `127.0.0.1` |
+| smtp.port    | SMTP listen TCP port | `9025`      |
 
 ## POP3
 
-| Option       | Description                              |
-|--------------|------------------------------------------|
-| pop3.enabled | Allow connect via POP3 (default: true).  |
-| pop3.address | POP3 listen address (default: 127.0.0.1) |
-| pop3.port    | POP3 listen TCP port (default: 9110)     |
+| Option       | Description          | Default     |
+|--------------|----------------------|-------------|
+| pop3.enabled | Enable POP3          | `true`      |
+| pop3.address | POP3 listen address  | `127.0.0.1` |
+| pop3.port    | POP3 listen TCP port | `9110`      |

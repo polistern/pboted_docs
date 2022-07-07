@@ -1,4 +1,4 @@
-# Glossary of Terms (DRAFT)
+# Glossary of Terms
 
 ## `Email Destination`
 

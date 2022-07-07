@@ -5,7 +5,7 @@ In the near future, this functionality will be implemented as a [CLI utility](ht
 
 You can only continue to use your `Email identities` from **Java Bote** if:
 
-- your address is created using the one of the follow algorithm (others are not supported yet):
+- address is created using the one of the follow algorithm (others are not supported yet):
     - `ECDH-256/ECDSA-256/AES-256/SHA-256`
     - `ECDH-521/ECDSA-521/AES-256/SHA-512` 
 - identities file is not encrypted (encrypted files are not supported yet)
@@ -20,7 +20,20 @@ See [create_identity](https://github.com/polistern/pboted-tools/tree/main/create
 
     After successful sending, the email file will be modified and moved to the `sent` directory
 
+- Any valid MIME file with valid `FROM` and `TO` headers in `outbox` directory will be sent
+- Follow headers will be added to the file after initial processing:
+    - `X-HashCash`
+    - `X-I2PBote-Signature`
+- If file sent successfully follow headers will be added to the file:
+    - `X-I2PBote-DHT-Key`
+    - `X-I2PBote-Delete-Auth-Hash`
+- File will be moved to `sent` directory
+
 ### SMTP
+
+!!! note "Note"
+
+    When sending via SMTP, a MIME file will also be created in the `outbox` directory
 
 See [SMTP](../tutorials/SMTP.md)
 

@@ -18,7 +18,7 @@ If `nodex.txt` and `peers.txt` files exists, then these option will be ignored.
 !!! note "Note"
 
     You can remove `nodes.txt` and `peers.txt` files while **pboted** is stopped.
-    In this case section will be readed from configuration file.
+    In this case `[bootstrap]` section will be readed from configuration file.
 
 To use this option, you need in the configuration file:
 
